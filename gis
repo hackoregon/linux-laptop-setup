@@ -26,4 +26,4 @@ sudo apt-get install -y \
 
 # create a PostgreSQL login / database
 COMMAND="createuser -s ${USER}"
-sudo su - postgres -c ${COMMAND}
+sudo su - postgres -c "${COMMAND}"
