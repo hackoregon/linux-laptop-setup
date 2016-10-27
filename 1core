@@ -1,6 +1,6 @@
-apt update
-apt dist-upgrade -y
-apt install -y \
+sudo apt update
+sudo apt dist-upgrade -y
+sudo apt install -y \
   apt-file \
   aria2 \
   curl \
@@ -9,4 +9,4 @@ apt install -y \
   vim-nox \
   virtualenvwrapper \
   wget
-cp set-editor.bash /etc/profile.d/
+sudo cp set-editor.bash /etc/profile.d/
