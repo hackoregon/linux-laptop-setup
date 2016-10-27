@@ -1,12 +1,8 @@
 #! /bin/bash -v
 
 # Packages
+./postgres
 sudo apt-get install -y \
-  pgadmin3 \
-  postgresql \
-  postgresql-client \
-  postgresql-contrib \
-  postgresql-doc \
   postgis \
   postgis-doc \
   postgresql-9.5-pgrouting \
@@ -23,8 +19,3 @@ sudo apt-get install -y \
   qgis-server \
   qgis-provider-grass \
   qgis-plugin-globe
-
-# create a PostgreSQL login / database
-COMMAND="createuser -s ${USER}"
-sudo su - postgres -c "${COMMAND}"
-createdb ${USER}
