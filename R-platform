@@ -1,5 +1,37 @@
 #! /bin/bash
 
+# add repository for latest R
+sudo cp xenial.list /etc/apt/sources.list.d
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+sudo apt-get update
+
+# Packages
+sudo apt-get install -y \
+  default-java-plugin \
+  default-jdk \
+  default-jre \
+  gdebi \
+  r-base \
+  r-base-dev \
+  texinfo \
+  texlive-full \
+  xindy
+
+# use US letter paper size
+sudo paperconfig -p letter
+sudo tl-paper set all letter
+
+# R package installs need TMPDIR on "hard drive"
+sudo mkdir -p /TMPDIR
+sudo chmod a+rwx /TMPDIR
+sudo cp Rprofile.site `R RHOME`/etc/
+
+# set job count for makes installing R packages
+sudo sed -i "s;^MAKE.*$;MAKE='make -j 1';" `R RHOME`/etc/Renviron
+
+# Test Java
+sudo R CMD javareconf
+
 # create empty library
 R --no-save < `R RHOME`/etc/Rprofile.site
 
@@ -16,9 +48,53 @@ R -e 'install.packages(c("tidyverse", "XML"))'
 R -e 'install.packages("shiny")'
 
 # Authoring
-./upstream-calibre
+
+# Upstream Calibre
+sudo -v && \
+  wget -nv -O- \
+    https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
+  | sudo python -c \
+    "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
 R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"))'
 
 # Package development
 sudo apt install -y libssh2-1-dev # enables an option in 'git2r'
 R -e 'install.packages(c("devtools", "roxygen2"))'
+
+# latest RStudio
+
+# symbols
+export PREVIEW='curl -Ls https://www.rstudio.com/products/rstudio/download/preview/'
+export STABLE='curl -Ls https://www.rstudio.com/products/rstudio/download/'
+export AMD64='grep amd64.deb'
+export LTRIM='s;^.*href=";;'
+export RTRIM='s;amd64.deb.*$;amd64.deb;'
+export PREVIEW_DESKTOP=`${PREVIEW}|${AMD64}|grep -v server|grep -v tar.gz|sed ${LTRIM}|sed ${RTRIM}`
+export STABLE_DESKTOP=`${STABLE}|${AMD64}|grep -v server|grep -v tar.gz|sed ${LTRIM}|sed ${RTRIM}`
+export DESKTOP=${PREVIEW_DESKTOP}
+export STABLE_SERVER=`${STABLE}|${AMD64}|grep -i server|grep -v pro|sed ${LTRIM}|sed ${RTRIM}`
+export PREVIEW_SERVER=`${PREVIEW}|${AMD64}|grep -i server|grep -v pro|sed ${LTRIM}|sed ${RTRIM}`
+export SERVER=${PREVIEW_SERVER}
+
+# get into neutral territory, since we're root
+sudo mkdir -p /usr/local/src
+pushd /usr/local/src
+
+## install RStudio® Desktop
+## https://www.rstudio.com/about/trademark/
+export PACKAGE=`echo ${DESKTOP}|sed 's;^.*rstudio-;rstudio-;'`
+sudo rm -f ${PACKAGE}
+sudo wget -q ${DESKTOP}
+sudo gdebi --non-interactive ${PACKAGE}
+
+# make the pandoc tools show in PATH
+sudo ln -sf /usr/lib/rstudio/bin/pandoc/pandoc* /usr/local/bin/
+
+## install RStudio® Server
+## https://www.rstudio.com/about/trademark/
+export PACKAGE=`echo ${SERVER}|sed 's;^.*rstudio-;rstudio-;'`
+sudo rm -f ${PACKAGE}
+sudo wget -q ${SERVER}
+sudo gdebi --non-interactive ${PACKAGE}
+
+popd
