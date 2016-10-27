@@ -1,0 +1,32 @@
+#! /bin/bash
+
+# add repository for latest R
+cp xenial.list /etc/apt/sources.list.d
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+
+# Packages
+apt-get update
+apt-get install -y \
+  default-java-plugin \
+  default-jdk \
+  default-jre \
+  gdebi \
+  r-base \
+  r-base-dev \
+  texinfo \
+  texlive-full \
+  xindy
+
+# use US letter paper size
+paperconfig -p letter
+tl-paper set all letter
+
+# R package installs need TMPDIR on "hard drive"
+mkdir -p /TMPDIR && sudo chmod a+rwx /TMPDIR
+cp Rprofile.site `R RHOME`/etc/
+
+# set job count for makes installing R packages
+sed -i "s;^MAKE.*$;MAKE='make -j 1';" `R RHOME`/etc/Renviron
+
+# Test Java
+R CMD javareconf

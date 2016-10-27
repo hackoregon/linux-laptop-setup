@@ -1,0 +1,2 @@
+sudo apt install -y docker.io
+sudo gpasswd -a ${USER} docker && sudo systemctl restart docker

@@ -1,0 +1,24 @@
+#! /bin/bash
+
+# create empty library
+R --no-save < `R RHOME`/etc/Rprofile.site
+
+# install the tidyverse
+sudo apt install -y \
+  libcurl4-openssl-dev \
+  libssl-dev \
+  libxml2-dev \
+  pandoc \
+  pandoc-citeproc
+R -e 'install.packages(c("tidyverse", "XML"))'
+
+# Shiny
+R -e 'install.packages("shiny")'
+
+# Authoring
+./upstream-calibre
+R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"))'
+
+# Package development
+sudo apt install -y libssh2-1-dev # enables an option in 'git2r'
+R -e 'install.packages(c("devtools", "roxygen2"))'

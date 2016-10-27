@@ -1,0 +1,23 @@
+#! /bin/bash
+
+# Jupyter itself
+source ${VIRTUALENVWRAPPER_SCRIPT}
+rmvirtualenv jupyter
+mkvirtualenv -p /usr/bin/python3 jupyter
+workon jupyter
+
+pip install --upgrade pip
+pip install jupyter
+pip install virtualenvwrapper
+#pip install scikit-learn
+#pip install seaborn
+
+# IPyParallel
+pip install ipyparallel
+mkdir -p ~/.ipython/profile_default
+
+# extensions
+# see https://github.com/ipython/ipyparallel/issues/170
+jupyter serverextension enable --py ipyparallel --user
+jupyter nbextension install --py ipyparallel --user 
+jupyter nbextension enable --py ipyparallel --user

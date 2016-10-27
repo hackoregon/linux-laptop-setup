@@ -1,0 +1,12 @@
+apt update
+apt dist-upgrade -y
+apt install -y \
+  apt-file \
+  aria2 \
+  curl \
+  git \
+  lynx \
+  vim-nox \
+  virtualenvwrapper \
+  wget
+cp set-editor.bash /etc/profile.d/

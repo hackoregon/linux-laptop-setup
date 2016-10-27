@@ -1,0 +1,8 @@
+sudo apt install -y \
+  virt-manager \
+  qemu-kvm \
+  qemu-utils \
+  gir1.2-spice-client-gtk-3.0 \
+  libspice-client-gtk-3.0-4 \
+  libvirt-bin
+sudo gpasswd -a ${USER} libvirtd

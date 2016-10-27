@@ -1,0 +1,29 @@
+#! /bin/bash -v
+
+# Packages
+sudo apt-get install -y \
+  pgadmin3 \
+  postgresql \
+  postgresql-client \
+  postgresql-contrib \
+  postgresql-doc \
+  postgis \
+  postgis-doc \
+  postgresql-9.5-pgrouting \
+  postgresql-9.5-pgrouting-doc \
+  postgresql-9.5-postgis-2.2 \
+  postgresql-9.5-postgis-scripts \
+  grass \
+  grass-doc \
+  grass-gui \
+  qgis \
+  qgis-api-doc \
+  proj-bin \
+  gdal-bin \
+  qgis-server \
+  qgis-provider-grass \
+  qgis-plugin-globe
+
+# create a PostgreSQL login / database
+COMMAND="createuser -s ${USER}"
+sudo su - postgres -c ${COMMAND}
