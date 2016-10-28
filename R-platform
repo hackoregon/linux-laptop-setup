@@ -100,6 +100,7 @@ pushd /usr/local/src
 ## https://www.rstudio.com/about/trademark/
 export PACKAGE=`echo ${DESKTOP}|sed 's;^.*rstudio-;rstudio-;'`
 sudo rm -f ${PACKAGE}
+echo "Downloading RStudio Desktop binary package"
 sudo wget -q ${DESKTOP}
 sudo gdebi --non-interactive ${PACKAGE}
 
