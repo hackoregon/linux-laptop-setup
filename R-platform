@@ -98,11 +98,4 @@ sudo gdebi --non-interactive ${PACKAGE}
 # make the pandoc tools show in PATH
 sudo ln -sf /usr/lib/rstudio/bin/pandoc/pandoc* /usr/local/bin/
 
-## install RStudio® Server
-## https://www.rstudio.com/about/trademark/
-export PACKAGE=`echo ${SERVER}|sed 's;^.*rstudio-;rstudio-;'`
-sudo rm -f ${PACKAGE}
-sudo wget -q ${SERVER}
-sudo gdebi --non-interactive ${PACKAGE}
-
 popd
