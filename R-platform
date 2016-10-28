@@ -11,10 +11,16 @@ sudo apt-get install -y \
   default-jdk \
   default-jre \
   gdebi \
+  lmodern \
   r-base \
   r-base-dev \
   texinfo \
-  texlive-full \
+  texlive-fonts-recommended \
+  texlive-generic-recommended \
+  texlive-latex-base \
+  texlive-latex-extra \
+  texlive-latex-recommended  \
+  texlive-xetex  \
   xindy
 
 # use US letter paper size
@@ -49,12 +55,14 @@ R -e 'install.packages("shiny")'
 
 # Authoring
 
-# Upstream Calibre
+## Upstream Calibre
 sudo -v && \
   wget -nv -O- \
     https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
   | sudo python -c \
     "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
+
+## R Markdown tools
 R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"))'
 
 # Package development
