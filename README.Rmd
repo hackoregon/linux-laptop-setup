@@ -11,13 +11,19 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Bugs? Feature requests? Unclear documentation?
 File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 
+## Design goals
+1. Run at native speed on a machine that might be too small to host a Docker container, a Vagrant box or a full virtual machine guest.
+2. Modular - you only install what you need to get your tasks done.
+3. Use the same software versions that other Hack Oregon projects are using whenever possible.
+4. The "server" subset must run in an Ubuntu 16.04 LTS system, including a Vagrant box.
+
 ## Which version of Linux should you use?
 I've designed these scripts to function on Linux Mint 18 "Sarah" (<https://www.linuxmint.com/download.php>). They should work on any of the Linux Mint "Sarah" desktops, although I'm only testing them on the Cinnamon desktop at the moment. They should also work on any Ubuntu 16.04 LTS "Xenial Xerus" desktop. They will not work on more recent or older versions of Ubuntu.
 
 If you have some other version of Linux already installed, open an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>. It will only take me a half-day or thereabouts to port them to any recent Linux distro.
 
 ## Getting started
-You'll need wall power and a reliable internet connection. Coffee shop WiFi can be problematic.
+You'll need wall power and a reliable internet connection. Coffee shop WiFi can be problematic. I don't have an accurate RAM requirement defined yet but I know the `r-platform` script crashes if you don't have at least 1536 MiB in a 64-bit Ubuntu 16.04 Vagrant box.
 
 1. Download and unpack <https://github.com/hackoregon/linux-laptop-setup/archive/master.zip>. This will create a directory `linux-laptop-setup-master`.
 2. Open a terminal and `cd` into the directory.
