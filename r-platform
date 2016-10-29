@@ -7,6 +7,7 @@ sudo apt update && sudo apt-file update
 
 # Packages
 sudo apt install -y \
+  calibre \
   default-java-plugin \
   default-jdk \
   default-jre \
@@ -28,13 +29,6 @@ sudo apt install -y \
   texlive-latex-recommended  \
   texlive-xetex  \
   xindy
-
-## Upstream Calibre
-sudo -v && \
-  wget -nv -O- \
-    https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
-  | sudo python -c \
-    "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
 
 # use US letter paper size
 sudo paperconfig -p letter
