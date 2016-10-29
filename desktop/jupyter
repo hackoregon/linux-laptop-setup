@@ -9,8 +9,8 @@ workon jupyter
 pip install --upgrade pip
 pip install jupyter
 pip install virtualenvwrapper
-#pip install scikit-learn
-#pip install seaborn
+pip install scikit-learn
+pip install seaborn
 
 # IPyParallel
 pip install ipyparallel
