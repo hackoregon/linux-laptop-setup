@@ -22,3 +22,5 @@ sudo apt-file update
 
 # set vim as default editor
 sudo cp set-editor.bash /etc/profile.d/
+
+echo "Log out and back in to set required environment variables!"
