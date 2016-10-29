@@ -20,5 +20,5 @@ sudo apt install -y \
 # run apt-file update
 sudo apt-file update
 
-# get vim as default editor
+# set vim as default editor
 sudo cp set-editor.bash /etc/profile.d/
