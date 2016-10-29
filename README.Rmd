@@ -41,13 +41,11 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
         A browser will open with the Jupyter notebook web app. 
 
         Note that I've included the IPyParallel package (<http://ipyparallel.readthedocs.io/en/latest/intro.html>). If you've got a machine with multiple cores you'll be able to run larger problems with this.
-    * Database / SQL / GIS: Install PostgreSQL, PostGIS and PgAdmin3 by typing `./postgres`. This will install PostgreSQL and PgAdmin3 and create a PostgreSQL super-user with the same user ID as your Linux user ID.
+    * Database / SQL / GIS: Install PostgreSQL and PostGIS by typing `./postgres`. This will install PostgreSQL and PostGIS and create a PostgreSQL super-user with the same user ID as your Linux user ID.
 
         Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
-    * QGIS: Type `./qgis` to install the QGIS (Quantum GIS) package.
-    * VirtualBox and Vagrant: Type `./virtualbox` to install VirtualBox. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). 
-    
-        After you've installed VirtualBox, type `./vagrant` to install Vagrant.
+    * QGIS and PgAdmin3 GUI tool: Type `./qgis-pgadmin3` to install PgAdmin3, the QGIS (Quantum GIS) desktop GUI and server.
+    * VirtualBox and Vagrant: If you want to host VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). You will need to log out and back in again after the install to join the `vboxusers` group.
 
 ## Advanced tools
 1. The R platform: type `./r-platform` to install the R platform. This includes:
