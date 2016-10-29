@@ -1,23 +1,62 @@
-# linux-laptop-setup
+Setting up a Linux laptop for Hack Oregon projects
+================
+M. Edward (Ed) Borasky <znmeb@znmeb.net>
 
-## Scripts for setting up a Linux laptop for working on Hack Oregon projects
-These scripts were designed to work on Linux Mint 18 "Sarah", which is based on Ubuntu 16.04 LTS "Xenial Xerus". Both are supported for five years.
+Which version of Linux should you use?
+--------------------------------------
 
-The scripts should work on any of the Ubuntu 16.04 desktops, although I haven't tested them. There are problems with the newer Ubuntu 16.10, and it's only supported for nine months, so don't use it.
+I've designed these scripts to function on Linux Mint 18 "Sarah" (<https://www.linuxmint.com/download.php>). They should work on any of the Linux Mint "Sarah" desktops, although I'm only testing them on the Cinnamon desktop at the moment. They should also work on any Ubuntu 16.04 LTS "Xenial Xerus" desktop. They will not work on more recent or older versions of Ubuntu.
 
-The scripts here are modular, depending on the tasks you want to perform. If you aren't doing Docker hosting, for example, you don't need to run `docker-hosting`. If you're running a Linux distro other than Linux Mint / Ubuntu 16.04, let me know and I'll build a virtual machine and port the scripts. Note that RStudio Server is not supported on Fedora Linux, but RStudio Desktop is.
+If you have some other version of Linux already installed, open an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>. It will only take me a half-day or thereabouts to port them to any recent Linux distro.
 
-Many of the scripts perform operations that require `root` privileges. To do this, they use the "sudo" command. At times, a script will pause and ask for a password. Enter ***your*** password, not the `root` password.
+Getting started
+---------------
 
-## Scripts
-* 1core: `./1core` installs the core command line tools. Everyone needs this.
-* git-lfs: `./git-lfs` installs the Git Large File Storage utility. You only need this if you're using Git LFS (<https://git-lfs.github.com/>).
-* docker-hosting: `docker-hosting` installs Docker hosting
-* postgres: `./postgres` installs PostgreSQL and creates a user / database with your Linux ID as the name.
-* gis: `./gis` run the `postgres` script, then installs PostGIS, QGIS and GRASS
-* jupyter: `./jupyter` installs a Jupyter virtualenv
-* R-platform: `./R-platform` installs R, RStudio Desktop and Server and the "tidyverse". This takes a long time; it's installing the entire LaTeX toolchain - "texlive-full" - which takes up about 4 GB.
-* dropbox: `./dropbox` installs the DropBox sync packages
-* virt-manager: `./virt-manager` installs the native Linux Virtual Machine Manager virtualization platform
-* virtualbox: `./virtualbox` installs the VirtualBox platform
-* vagrant: `./vagrant` installs the Vagrant platform
+You'll need wall power and a reliable internet connection. Coffee shop WiFi can be problematic.
+
+1.  Download and unpack <https://github.com/hackoregon/linux-laptop-setup/archive/master.zip>. This will create a directory `linux-laptop-setup-master`.
+2.  Open a terminal and `cd` into the directory.
+3.  About `sudo`: `sudo` (super-user do) is a Linux utility that allows you to perform adminstrative tasks like installing software by temporarily operating as the `root` super-user. If you see the prompt `[sudo] password for <your username>:`, enter *your* password.
+4.  Type `./1core`. This will install a few core utilities, including `git` and `vim`. It will also install the Python utility `virtualenvwrapper`, which allows isolating Python applications in named virtual environments.
+5.  Log out and back in again. This sets the environment variables you need for the Python virtual environments.
+6.  The scripts are modular - you only need to install what you're going to use. By task:
+    -   Git Large File Storage: we used this last year for Crop Compass. Note that GitHub charges money for both storage and download bandwidth for this, so be careful! If you need it, type `./git-lfs`.
+    -   Data science: Install the `jupyter` package by typing `./jupyter`. This will create a Jupyter notebook Python 3 virtualenv. To run it, type
+
+            workon jupyter
+            jupyter notebook
+
+        A browser will open with the Jupyter notebook web app.
+
+        Note that I've included the IPyParallel package (<http://ipyparallel.readthedocs.io/en/latest/intro.html>). If you've got a machine with multiple cores you'll be able to run larger problems with this.
+    -   Database / SQL / GIS: Install PostgreSQL, PostGIS and PgAdmin3 by typing `./postgres`. This will install PostgreSQL and PgAdmin3 and create a PostgreSQL super-user with the same user ID as your Linux user ID.
+
+        Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
+    -   QGIS: Type `./qgis` to install the QGIS (Quantum GIS) package.
+    -   VirtualBox and Vagrant: Type `./virtualbox` to install VirtualBox. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL).
+
+        After you've installed VirtualBox, type `./vagrant` to install Vagrant.
+
+Advanced tools
+--------------
+
+1.  The R platform: type `./r-platform` to install the R platform. This includes:
+
+    -   R
+    -   Java
+    -   The `tidyverse` data wrangling, modeling and visualization packages
+    -   The `Shiny` interactive application development package
+    -   The `flexdashboard`, `bookdown`, `tufte` and `rticles` authoring packages, and
+    -   The `devtools` and `roxygen2` package development tools.
+
+2.  RStudio: type `./rstudio-desktop` to install the RStudio Desktop. Type `./rstudio-server` to install the RStudio Server. You don't need both but it won't hurt anything if you have both of them.
+3.  Virtual Machine Manager: The "native" Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will have a menu item added to start it.
+4.  Docker hosting: If you want to run (or build) Docker images, install the Docker hosting with `./docker-hosting`.
+
+Todo
+----
+
+1.  Instructions for connecting QGIS to the PostGIS database.
+2.  Front-end tools: I'm not a front-end person so I have no idea what we'll need there. If there's something you want, file an issue and I'll add it.
+3.  Django: The last I heard we'll be using Django for some projects. I am working through <https://www.amazon.com/Mastering-Django-Core-Complete-Guide-ebook/dp/B01KR6F4Z2> and can easily add install scripts if anyone wants them.
+4.  Anaconda: If we decide we're using it, I'll add an installer script, although it's easy to install from the web.

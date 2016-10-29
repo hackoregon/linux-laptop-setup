@@ -1,4 +1,15 @@
 #! /bin/bash
 
-sudo apt install -y docker.io
+# upstream repository
+# https://docs.docker.com/engine/installation/linux/ubuntulinux/
+sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
+  --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+sudo cp docker.list /etc/apt/sources.list.d/
+sudo apt update && sudo apt-file update
+
+sudo apt install -y \
+  docker-engine \
+  linux-image-extra-$(uname -r) \
+  linux-image-extra-virtual
+
 sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
