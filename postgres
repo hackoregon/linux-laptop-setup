@@ -5,7 +5,7 @@
 sudo cp upstream-postgres.list /etc/apt/sources.list.d/
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
   sudo apt-key add -
-sudo apt update && sudo apt-file update
+sudo apt-get update && sudo apt-file update
 
 # Packages
 sudo apt-get install -y \
