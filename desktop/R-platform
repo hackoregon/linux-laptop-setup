@@ -11,7 +11,13 @@ sudo apt install -y \
   default-jdk \
   default-jre \
   gdebi \
+  libcurl4-openssl-dev \
+  libssh2-1-dev \
+  libssl-dev \
+  libxml2-dev \
   lmodern \
+  pandoc \
+  pandoc-citeproc \
   r-base \
   r-base-dev \
   texinfo \
@@ -22,6 +28,13 @@ sudo apt install -y \
   texlive-latex-recommended  \
   texlive-xetex  \
   xindy
+
+## Upstream Calibre
+sudo -v && \
+  wget -nv -O- \
+    https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
+  | sudo python -c \
+    "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
 
 # use US letter paper size
 sudo paperconfig -p letter
@@ -42,37 +55,14 @@ sudo R CMD javareconf
 R --no-save < `R RHOME`/etc/Rprofile.site
 
 # install the tidyverse
-
-## Linux dependencies
-sudo apt install -y \
-  libcurl4-openssl-dev \
-  libssl-dev \
-  libxml2-dev \
-  pandoc \
-  pandoc-citeproc
-
-## Tidyverse
 R -e 'install.packages(c("tidyverse", "XML"))'
 
 # Shiny
 R -e 'install.packages("shiny")'
 
-# Authoring
-
-## Upstream Calibre
-sudo -v && \
-  wget -nv -O- \
-    https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
-  | sudo python -c \
-    "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
-
-## R Markdown tools
-R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"))'
-
 # Package development
-
-## Linux dependencies
-sudo apt install -y libssh2-1-dev # enables an option in 'git2r'
-
-## Devtools
 R -e 'install.packages(c("devtools", "roxygen2"))'
+
+# Authoring
+R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"))'
+R -e 'devtools::install_github("rstudio/bookdown")'
