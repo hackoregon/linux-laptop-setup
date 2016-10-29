@@ -1,6 +1,11 @@
-Setting up a Linux laptop for Hack Oregon projects
+Setting up a Linux Laptop for Hack Oregon Projects
 ================
 M. Edward (Ed) Borasky <znmeb@znmeb.net>
+
+Bugs? Feature requests? Unclear documentation?
+----------------------------------------------
+
+File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 
 Which version of Linux should you use?
 --------------------------------------
@@ -52,6 +57,11 @@ Advanced tools
 2.  RStudio: type `./rstudio-desktop` to install the RStudio Desktop. Type `./rstudio-server` to install the RStudio Server. You don't need both but it won't hurt anything if you have both of them.
 3.  Virtual Machine Manager: The "native" Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will have a menu item added to start it.
 4.  Docker hosting: If you want to run (or build) Docker images, install the Docker hosting with `./docker-hosting`.
+
+Bugs? Feature requests? Unclear documentation?
+----------------------------------------------
+
+File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 
 Todo
 ----

@@ -1,5 +1,5 @@
 ---
-title: "Setting up a Linux laptop for Hack Oregon projects"
+title: "Setting up a Linux Laptop for Hack Oregon Projects"
 author: "M. Edward (Ed) Borasky <znmeb@znmeb.net>"
 output: github_document
 ---
@@ -7,6 +7,9 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+## Bugs? Feature requests? Unclear documentation?
+File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 
 ## Which version of Linux should you use?
 I've designed these scripts to function on Linux Mint 18 "Sarah" (<https://www.linuxmint.com/download.php>). They should work on any of the Linux Mint "Sarah" desktops, although I'm only testing them on the Cinnamon desktop at the moment. They should also work on any Ubuntu 16.04 LTS "Xenial Xerus" desktop. They will not work on more recent or older versions of Ubuntu.
@@ -53,6 +56,9 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
 2. RStudio: type `./rstudio-desktop` to install the RStudio Desktop. Type `./rstudio-server` to install the RStudio Server. You don't need both but it won't hurt anything if you have both of them.
 3. Virtual Machine Manager: The "native" Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will have a menu item added to start it.
 4. Docker hosting: If you want to run (or build) Docker images, install the Docker hosting with `./docker-hosting`.
+
+## Bugs? Feature requests? Unclear documentation?
+File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 
 ## Todo
 1. Instructions for connecting QGIS to the PostGIS database.
