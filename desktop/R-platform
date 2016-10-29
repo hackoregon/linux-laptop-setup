@@ -76,35 +76,3 @@ sudo apt install -y libssh2-1-dev # enables an option in 'git2r'
 
 ## Devtools
 R -e 'install.packages(c("devtools", "roxygen2"))'
-
-# latest RStudio
-
-## symbols
-export PREVIEW='curl -Ls https://www.rstudio.com/products/rstudio/download/preview/'
-export STABLE='curl -Ls https://www.rstudio.com/products/rstudio/download/'
-export AMD64='grep amd64.deb'
-export LTRIM='s;^.*href=";;'
-export RTRIM='s;amd64.deb.*$;amd64.deb;'
-export PREVIEW_DESKTOP=`${PREVIEW}|${AMD64}|grep -v server|grep -v tar.gz|sed ${LTRIM}|sed ${RTRIM}`
-export STABLE_DESKTOP=`${STABLE}|${AMD64}|grep -v server|grep -v tar.gz|sed ${LTRIM}|sed ${RTRIM}`
-export DESKTOP=${PREVIEW_DESKTOP}
-export STABLE_SERVER=`${STABLE}|${AMD64}|grep -i server|grep -v pro|sed ${LTRIM}|sed ${RTRIM}`
-export PREVIEW_SERVER=`${PREVIEW}|${AMD64}|grep -i server|grep -v pro|sed ${LTRIM}|sed ${RTRIM}`
-export SERVER=${PREVIEW_SERVER}
-
-## get into neutral territory, since we're root
-sudo mkdir -p /usr/local/src
-pushd /usr/local/src
-
-## install RStudio® Desktop
-## https://www.rstudio.com/about/trademark/
-export PACKAGE=`echo ${DESKTOP}|sed 's;^.*rstudio-;rstudio-;'`
-sudo rm -f ${PACKAGE}
-echo "Downloading RStudio Desktop binary package"
-sudo wget -q ${DESKTOP}
-sudo gdebi --non-interactive ${PACKAGE}
-
-## make the pandoc tools show in PATH
-sudo ln -sf /usr/lib/rstudio/bin/pandoc/pandoc* /usr/local/bin/
-
-popd
