@@ -1,0 +1,16 @@
+#! /bin/bash -v
+
+# Repository
+# https://www.postgresql.org/download/linux/ubuntu/
+sudo cp upstream-postgres.list /etc/apt/sources.list.d/
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
+  sudo apt-key add -
+sudo apt update && sudo apt-file update
+
+# Packages
+sudo apt-get install -y \
+  postgresql-9.5 \
+  postgresql-client-9.5 \
+  postgresql-contrib-9.5 \
+  postgresql-9.5-postgis-2.2 \
+  postgresql-9.5-postgis-2.2-scripts
