@@ -8,8 +8,9 @@ sudo cp docker.list /etc/apt/sources.list.d/
 sudo apt update && sudo apt-file update
 
 sudo apt install -y \
+  aufs-tools \
+  cgroupfs-mount \
   docker-engine \
-  linux-image-extra-$(uname -r) \
-  linux-image-extra-virtual
+  linux-image-extra-$(uname -r)
 
 sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
