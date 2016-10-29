@@ -65,4 +65,4 @@ R -e 'install.packages(c("devtools", "roxygen2"))'
 
 # Authoring
 R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"))'
-R -e 'devtools::install_github("rstudio/bookdown")'
+R -e 'devtools::install_github("rstudio/bookdown", build_vignettes = TRUE)'
