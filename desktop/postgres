@@ -15,3 +15,6 @@ sudo apt-get install -y \
   postgresql-contrib-9.5 \
   postgresql-9.5-postgis-2.2 \
   postgresql-9.5-postgis-2.2-scripts
+
+# make yourself a PostgreSQL superuser
+sudo su -c "createuser -s ${USER}" postgres
