@@ -1,20 +1,8 @@
-#! /bin/bash -v
+#! /bin/bash
 
-# Upstream VirtualBox repo
-sudo cp virtualbox.list /etc/apt/sources.list.d/
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-sudo apt-get update && sudo apt-file update
-
-sudo apt-get install -y \
-  dkms \
-  vagrant \
-  virtualbox-5.0
-sudo gpasswd -a ${USER} vboxusers
-
-# install the most recent extension pack
-export SOURCE="curl -Ls https://www.virtualbox.org/wiki/Downloads/"
-export FIND="grep extpack"
-export LTRIM='s;^.*href="http;http;'
-export RTRIM='s;".*$;;'
-export EXTPACK=`${SOURCE} | ${FIND} | head -n 1 | sed ${LTRIM} | sed ${RTRIM}`
-xdg-open $EXTPACK
+sudo apt install -y \
+  virtualbox \
+  virtualbox-dkms \
+  virtualbox-ext-pack \
+  virtualbox-guest-additions-iso \
+  virtualbox-qt
