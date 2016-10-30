@@ -3,8 +3,14 @@
 # LaTeX packages for PDF notebook downloads
 # File an issue at https://github.com/hackoregon/linux-laptop-setup/issues/new if you need others
 sudo apt-get install -y \
+  dvipng \
+  gfortran \
+  g++ \
+  libfreetype6-dev \
+  libpng12-dev \
   pandoc \
   pandoc-citeproc \
+  python3-dev \
   texlive-latex-base \
   texlive-fonts-recommended \
   texlive-latex-recommended \
