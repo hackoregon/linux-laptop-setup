@@ -3,14 +3,8 @@
 # LaTeX packages for PDF notebook downloads
 # File an issue at https://github.com/hackoregon/linux-laptop-setup/issues/new if you need others
 sudo apt-get install -y \
-  dvipng \
-  gfortran \
-  g++ \
-  libfreetype6-dev \
-  libpng12-dev \
   pandoc \
   pandoc-citeproc \
-  python3-dev \
   texlive-latex-base \
   texlive-fonts-recommended \
   texlive-latex-recommended \
@@ -31,14 +25,3 @@ pip install --upgrade pip
 pip install jupyter
 pip install virtualenvwrapper
 pip install scikit-learn
-pip install seaborn
-
-# IPyParallel
-pip install ipyparallel
-mkdir -p ~/.ipython/profile_default
-
-# extensions
-# see https://github.com/ipython/ipyparallel/issues/170
-jupyter serverextension enable --py ipyparallel --user
-jupyter nbextension install --py ipyparallel --user 
-jupyter nbextension enable --py ipyparallel --user
