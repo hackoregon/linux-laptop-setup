@@ -8,7 +8,7 @@ sudo apt-get update && sudo apt-file update
 sudo apt-get install -y \
   dkms \
   vagrant \
-  virtualbox-5.1
+  virtualbox-5.0
 sudo gpasswd -a ${USER} vboxusers
 
 # install the most recent extension pack
