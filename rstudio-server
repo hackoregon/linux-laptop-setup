@@ -25,7 +25,4 @@ echo "Downloading RStudio Server binary package"
 sudo wget -q ${SERVER}
 sudo gdebi --non-interactive ${PACKAGE}
 
-## make the pandoc tools show in PATH
-sudo ln -sf /usr/lib/rstudio-server/bin/pandoc/pandoc* /usr/local/bin/
-
 popd

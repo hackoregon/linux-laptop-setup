@@ -25,7 +25,4 @@ echo "Downloading RStudio Desktop binary package"
 sudo wget -q ${DESKTOP}
 sudo gdebi --non-interactive ${PACKAGE}
 
-## make the pandoc tools show in PATH
-sudo ln -sf /usr/lib/rstudio/bin/pandoc/pandoc* /usr/local/bin/
-
 popd
