@@ -34,7 +34,7 @@ There are essentially three kinds of Intel / AMD based PCs:
 
 1. 32-bit only: These are usually older machines, although some of the Atom-based machines sold today will only run 32-bit software.
 2. 64-bit: These machines will run either 32-bit or 64-bit software.
-3. 64-bit plus virtualization assists: these are the most recent machines. The virtualization assists are sometimes disabled in the BIOS / firmware. You will need to enable them if this is the case.
+3. 64-bit plus virtualization assists (64-bit VA): these are the most recent machines. The virtualization assists are sometimes disabled in the BIOS / firmware. You will need to enable them if this is the case.
 
 ## Getting started
 You'll need wall power and a reliable internet connection. Coffee shop WiFi can be problematic. I don't have an accurate RAM requirement defined yet but I know the `r-platform` script crashes if you don't have at least 1536 MiB in a 64-bit Ubuntu 16.04 Vagrant box. See <https://github.com/hackoregon/linux-laptop-setup/issues/11> and <https://github.com/tidyverse/readr/issues/544> for the gory details. My goal is for everything except virtual machine hosting to run in a 1 GB machine.
@@ -66,8 +66,8 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
 
         Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
     * QGIS and PgAdmin3 GUI tools: Type `./qgis-pgadmin3` to install PgAdmin3, the QGIS (Quantum GIS) desktop GUI, and the QGIS map server.
-    * VirtualBox and Vagrant hosting (64-bit only): If you want to host VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). You will need to log out and back in again after the install to join the `vboxusers` group. In theory this works on a 32-bit host but I don't recommend it.
-    * DropBox: To install the Dropbox client, type `./dropbox`. This will install the base, but you still need to do a bit of setup. Open your desktop's menu and select the Dropbox app. It will start up and ask you for permission to download a proprietary daemon. Allow it to do so.
+    * VirtualBox and Vagrant hosting (64-bit VA only): If you want to host VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). You will need to log out and back in again after the install to join the `vboxusers` group. In theory this works on a 32-bit host but I don't recommend it.
+    * Dropbox: To install the Dropbox client, type `./dropbox`. This will install the base, but you still need to do a bit of setup. Open your desktop's menu and select the Dropbox app. It will start up and ask you for permission to download a proprietary daemon. Allow it to do so.
 
         Once the daemon is downloaded, you'll need to log in to Dropbox with your email address and password. If you have two-factor authentication enabled, you'll need your device to receive the one-time code. And you'll need to enter that code in the Dropbox login. Once you've done that, Dropbox will start syncing.
 
@@ -81,11 +81,13 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
     * The `flexdashboard`, `bookdown`, `tufte` and `rticles` authoring packages, and
     * The `devtools` and `roxygen2` package development tools.
 
+    This takes a long time to install.
+
 2. RStudio: type `./rstudio-desktop` to install the RStudio Desktop. Type `./rstudio-server` to install the RStudio Server. You don't need both but it won't hurt anything if you have both of them.
 
     RStudio Server listens on port 8787. It's enabled and running by default. Use `ipconfig` to determine the IP address and browse to port 8787 from another machine. You'll log in with your regular Linux username and password.
-3. Virtual Machine Manager (64-bit only): The "native" Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
-4. Docker hosting (64-bit only): If you want to run (or build) Docker images, install the Docker hosting with `./docker-hosting`. You will need to log out and back in again to join the `docker` group.
+3. Virtual Machine Manager (64-bit VA only): The "native" Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
+4. Docker hosting (64-bit or 64-bit VA only): If you want to run (or build) Docker images, install the Docker hosting with `./docker-hosting`. You will need to log out and back in again to join the `docker` group.
 
 ## Bugs? Feature requests? Unclear documentation?
 File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
