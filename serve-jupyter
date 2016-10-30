@@ -1,0 +1,10 @@
+#! /bin/bash
+
+source $VIRTUALENVWRAPPER_SCRIPT
+workon jupyter
+
+# show IP address
+ifconfig
+
+# listen on 0.0.0.0:8888, don't start a browser!
+jupyter notebook --port=8888 --ip=0.0.0.0 --no-browser
