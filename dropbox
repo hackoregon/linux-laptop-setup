@@ -1,3 +1,4 @@
 #! /bin/bash
 
 sudo apt-get install -y dropbox python-gpgme
+echo "Run the 'Dropbox' app from the desktop menu and sign in to Docker!"

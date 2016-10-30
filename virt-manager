@@ -8,3 +8,4 @@ sudo apt-get install -y \
   libspice-client-gtk-3.0-4 \
   libvirt-bin
 sudo gpasswd -a ${USER} libvirtd
+echo "Log out and back in to join the 'libvirt' group!"
