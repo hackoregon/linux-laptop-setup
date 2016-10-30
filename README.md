@@ -58,6 +58,9 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
         Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
     -   QGIS and PgAdmin3 GUI tools: Type `./qgis-pgadmin3` to install PgAdmin3, the QGIS (Quantum GIS) desktop GUI and server.
     -   VirtualBox and Vagrant: If you want to host VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). You will need to log out and back in again after the install to join the `vboxusers` group.
+    -   DropBox: To install the Dropbox client, type `./dropbox`. This will install the base, but you still need to do a bit of setup. Open your desktop's menu and select the Dropbox app. It will start up and ask you for permission to download a proprietary daemon. Allow it to do so.
+
+        Once the daemon is downloaded, you'll need to log in to Dropbox with your email address and password. If you have two-factor authentication enabled, you'll need your device to receive the one-time code. And you'll need to enter that code in the Dropbox login. Once you've done that, Dropbox will start syncing.
 
 Advanced tools
 --------------
