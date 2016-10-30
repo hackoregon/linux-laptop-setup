@@ -3,14 +3,21 @@
 ## symbols
 export PREVIEW='curl -Ls https://www.rstudio.com/products/rstudio/download/preview/'
 export STABLE='curl -Ls https://www.rstudio.com/products/rstudio/download/'
-export AMD64='grep amd64.deb'
-export LTRIM='s;^.*href=";;'
-export RTRIM='s;amd64.deb.*$;amd64.deb;'
-export PREVIEW_DESKTOP=`${PREVIEW}|${AMD64}|grep -v server|grep -v tar.gz|sed ${LTRIM}|sed ${RTRIM}`
-export STABLE_DESKTOP=`${STABLE}|${AMD64}|grep -v server|grep -v tar.gz|sed ${LTRIM}|sed ${RTRIM}`
+if [ `uname -m` == "i686" ]
+then
+  export ARCH=i386
+else
+  export ARCH=amd64
+fi
+echo  "Machine is ${ARCH}"
+export FIND="grep ${ARCH}.deb"
+export LTRIM="s;^.*href=\";;"
+export RTRIM="s;${ARCH}.deb.*$;${ARCH}.deb;"
+export PREVIEW_DESKTOP=`${PREVIEW}|${FIND}|grep -v server|grep -v tar.gz|sed ${LTRIM}|sed ${RTRIM}`
+export STABLE_DESKTOP=`${STABLE}|${FIND}|grep -v server|grep -v tar.gz|sed ${LTRIM}|sed ${RTRIM}`
 export DESKTOP=${PREVIEW_DESKTOP}
-export STABLE_SERVER=`${STABLE}|${AMD64}|grep -i server|grep -v pro|sed ${LTRIM}|sed ${RTRIM}`
-export PREVIEW_SERVER=`${PREVIEW}|${AMD64}|grep -i server|grep -v pro|sed ${LTRIM}|sed ${RTRIM}`
+export STABLE_SERVER=`${STABLE}|${FIND}|grep -i server|grep -v pro|sed ${LTRIM}|sed ${RTRIM}`
+export PREVIEW_SERVER=`${PREVIEW}|${FIND}|grep -i server|grep -v pro|sed ${LTRIM}|sed ${RTRIM}`
 export SERVER=${PREVIEW_SERVER}
 
 ## get into neutral territory, since we're root
