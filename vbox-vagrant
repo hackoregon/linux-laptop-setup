@@ -6,30 +6,27 @@ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-
 sudo apt-get update && sudo apt-file update
 
 # install VirtualBox
-sudo apt install -y virtualbox-5.1 dkms gdebi
+sudo apt install -y virtualbox-5.1
+
+# join the group
+sudo gpasswd -a ${USER} vboxusers
 
 # what machine have we got?
 if [ `uname -m` == "i686" ]
 then
-  export ARCH=i686
+  export ARCH=32
 else
-  export ARCH=x86_64
+  export ARCH=64
 fi
-echo  "Machine is ${ARCH}"
+echo  "Your machine is ${ARCH} bits."
 
-# get the package from HashiCorp's download page
-export PAGE="https://www.vagrantup.com/downloads.html"
-export SEEKING="https://releases.hashicorp.com/vagrant/.*${ARCH}\.deb"
-export LTRIM="s;^.*href=\";;"
-export RTRIM="s;${ARCH}\.deb.*$;${ARCH}\.deb;"
-export PACKAGE=`curl -Ls ${PAGE} | grep -e ${SEEKING} | sed -e ${LTRIM} | sed -e ${RTRIM}`
-echo "Package is ${PACKAGE}"
-
-pushd ~/Downloads
-rm -f vagrant*.deb
-wget -q ${PACKAGE}
-sudo gdebi --non-interactive vagrant*.deb
-popd
-
-sudo gpasswd -a ${USER} vboxusers
+echo "You will need to install Vagrant from the Hashicorp website."
+echo "1. Browse to 'https://www.vagrantup.com/downloads.html'."
+echo "2. Find the link to the Debian package for ${ARCH}-bit systems."
+echo "3. Click the link to open it with the GDebi package installer. This should be the browser default."
+echo "4. Press the 'Install' button. You may have to enter your password."
+echo "5. Close the GDebi window after the install finishes."
+echo ""
+echo "Press 'Enter' when the install has finished."
+read DUMMY
 echo "Log out and back in to join the 'vboxusers' group!"
