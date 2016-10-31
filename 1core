@@ -11,6 +11,8 @@ sudo apt-get install -y \
   apt-file \
   aria2 \
   curl \
+  dkms \
+  gdebi \
   git \
   lynx \
   vim-nox \
