@@ -1,5 +1,17 @@
 #! /bin/bash
 
+# what machine have we got?
+if [ `arch` == "x86_64" ]
+then
+  export ARCH=64
+  echo "Your machine is ${ARCH} bits."
+  echo "You can host Hack Oregon virtual machines / Vagrant boxes."
+else
+  export ARCH=32
+  echo "Your machine is ${ARCH} bits."
+  echo "Warning: Hack Oregon virtual machines / Vagrant boxes won't work."
+fi
+
 # add the Oracle repository and key
 sudo cp virtualbox.list /etc/apt/sources.list.d/
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
@@ -11,14 +23,6 @@ sudo apt install -y virtualbox-5.1
 # join the group
 sudo gpasswd -a ${USER} vboxusers
 
-# what machine have we got?
-if [ `arch` == "x86_64" ]
-then
-  export ARCH=64
-else
-  export ARCH=32
-fi
-echo  "Your machine is ${ARCH} bits."
 
 echo "You will need to install Vagrant from the Hashicorp website."
 echo ""
