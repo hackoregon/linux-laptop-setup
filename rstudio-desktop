@@ -1,18 +1,21 @@
 #! /bin/bash
 
-## symbols
-source rstudio-symbols
+# what machine have we got?
+if [ `arch` == "x96_64" ]
+then
+  export ARCH=64
+else
+  export ARCH=32
+fi
+echo  "Your machine is ${ARCH} bits."
 
-## get into neutral territory, since we're root
-sudo mkdir -p /usr/local/src
-pushd /usr/local/src
-
-## install RStudio® Desktop
-## https://www.rstudio.com/about/trademark/
-export PACKAGE=`echo ${DESKTOP}|sed 's;^.*rstudio-;rstudio-;'`
-sudo rm -f ${PACKAGE}
-echo "Downloading RStudio Desktop binary package"
-sudo wget -q ${DESKTOP}
-sudo gdebi --non-interactive ${PACKAGE}
-
-popd
+echo "You will need to install RStudio® Desktop from the RStudio Preview download website."
+echo "1. Browse to 'https://www.rstudio.com/products/rstudio/download/preview/'."
+echo "2. Find the link to the Ubuntu / Debian package for ${ARCH}-bit systems."
+echo "3. Click the link to open it with the GDebi package installer. This should be the browser default."
+echo "4. Press the 'Install' button. You may have to enter your password."
+echo "5. Close the GDebi window after the install finishes."
+echo ""
+echo "Press 'Enter' when the install has finished."
+read DUMMY
+echo "Log out and back in to join the 'vboxusers' group!"
