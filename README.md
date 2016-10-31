@@ -64,7 +64,7 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
         -   Matplotlib
         -   SymPy
         -   pandas
-        -   scikit-learn
+        -   scikit-learn (<http://scikit-learn.org/stable/>)
 
         To run the notebook, type
 
@@ -73,7 +73,7 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
 
         A browser will open with the Jupyter notebook web app. When you're finished, close the browser and type `Control-C` in the terminal window. You'll see
 
-            Serving notebooks from local directory: /home/znmeb/Projects/linux-laptop-setup
+            Serving notebooks from local directory: /path/to/your/directory/
             0 active kernels 
             The Jupyter Notebook is running at: http://localhost:8888/
             Shutdown this notebook server (y/[n])?
@@ -83,7 +83,9 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
 
         Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
     -   QGIS and PgAdmin3 GUI tools: Type `./qgis-pgadmin3` to install PgAdmin3, the QGIS (Quantum GIS) desktop GUI, and the QGIS map server.
-    -   VirtualBox and Vagrant hosting (64-bit VA bare metal only): If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). You may have to press `Tab` on the first screen to get to the `OK` button. You will need to log out and back in again after the install to join the `vboxusers` group.
+    -   VirtualBox and Vagrant hosting (64-bit VA bare metal only): If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`.
+
+        The script will install VirtualBox automatically, but you will need to install Vagrant manually from the HashiCorp Vagrant download website (<https://www.vagrantup.com/downloads.html>). The script will walk you through the process. You will need to log out and back in again after the install to join the `vboxusers` group.
 
 Advanced tools
 --------------
@@ -99,7 +101,7 @@ Advanced tools
 
     This takes a long time to install. You will probably have to watch it, because if the Linux package install takes long enough, it will pause wanting a `sudo` password entry.
 
-2.  RStudio: type `./rstudio-desktop` to install the RStudio Desktop.
+2.  RStudio: type `./rstudio-desktop` to install the RStudio Desktop. You will need to install RStudio Desktop manually from the RStudio Preview download website (<https://www.rstudio.com/products/rstudio/download/preview/>). The script will walk you through the process.
 3.  Docker hosting (64-bit or 64-bit VA, bare metal or inside a 64-bit guest machine): if you want to run (or build) Docker images, install Docker hosting with `./docker-hosting`. You will need to log out and back in again to join the `docker` group.
 4.  Virtual Machine Manager (64-bit VA bare metal only): the native Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
 5.  Git Large File Storage: we used this last year for Crop Compass. Note that GitHub charges money for both storage and download bandwidth for this, so be careful! If you need it, type `./git-lfs`.
