@@ -11,7 +11,7 @@ Design goals
 ------------
 
 1.  Run at native speed on bare metal, without the overhead of running as a guest in a virtual machine or container.
-2.  Work on smaller / older machines that are too small to host a Docker container, a Vagrant box or a full virtual machine guest. This includes 32-bit machines to the extent that the applications do.
+2.  Work on smaller / older machines that are too small to host a Docker container, a Vagrant box or a full virtual machine guest. This includes 32-bit machines to the extent that the applications allow.
 3.  Provide Docker, Vagrant / VirtualBox and Virtual Machine Manager hosting on systems with the hardware capability.
 4.  Modularity - you only install what you need to get your tasks done.
 5.  Use the same software versions that other Hack Oregon projects are using whenever possible.
@@ -37,9 +37,9 @@ A bit about hardware
 
 There are essentially three kinds of Intel / AMD based PCs:
 
-1.  32-bit only: These are usually older machines, although some Atom-based machines sold today will only run 32-bit software.
-2.  64-bit: These machines will run either 32-bit or 64-bit software.
-3.  64-bit plus virtualization assists (64-bit VA): these are the most recent machines. The virtualization assists are sometimes disabled in the BIOS / firmware. You will need to enable them if this is the case.
+1.  32-bit only: These are usually older machines, although some Atom-based machines sold today will only run 32-bit software. These machines should be capable of running the Python data science / machine learning tools, the database and GIS tools, the R platform and RStudio. They will not run Docker, Vagrant / VirtualBox or Virtual Machine Manager.
+2.  64-bit: These machines will run either 32-bit or 64-bit software. They will run everything a 32-bit machine can run and they will run Docker. They will not run Vagrant / VirtualBox or Virtual Machine Manager.
+3.  64-bit plus virtualization assists (64-bit VA): these are the most recent machines. The virtualization assists are sometimes disabled in the BIOS / firmware. You will need to enable the assists if they are disabled. They will run everything in this collection.
 
 Getting started
 ---------------
@@ -71,13 +71,11 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
             Shutdown this notebook server (y/[n])?
 
         Enter "y" to shut down Jupyter.
-
-        To run a Jupyter notebook server accessible to other machines on the local area network, type `./serve-jupyter`. This will open a Jupyter notebook server listening on 0.0.0.0:8888. The script runs `ifconfig` so you can see what your machine's IP address is. Browse to that IP address port 8888 from another machine.
     -   Database / SQL / GIS: Install PostgreSQL and PostGIS by typing `./postgres`. This will install PostgreSQL and PostGIS and create a PostgreSQL super-user with the same user ID as your Linux user ID.
 
         Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
     -   QGIS and PgAdmin3 GUI tools: Type `./qgis-pgadmin3` to install PgAdmin3, the QGIS (Quantum GIS) desktop GUI, and the QGIS map server.
-    -   VirtualBox and Vagrant hosting (64-bit VA only): If you want to host VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). You will need to log out and back in again after the install to join the `vboxusers` group. In theory this works on a 32-bit host but I don't recommend it.
+    -   VirtualBox and Vagrant hosting (64-bit VA bare metal only): If you want to host VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). You will need to log out and back in again after the install to join the `vboxusers` group. In theory this works on a 32-bit host but I don't recommend it.
     -   Git Large File Storage: we used this last year for Crop Compass. Note that GitHub charges money for both storage and download bandwidth for this, so be careful! If you need it, type `./git-lfs`.
 
 Advanced tools
@@ -94,11 +92,9 @@ Advanced tools
 
     This takes a long time to install. You will probably have to watch it, because if the Linux package install takes long enough, it will pause wanting a `sudo` password entry.
 
-2.  RStudio: type `./rstudio-desktop` to install the RStudio Desktop. Type `./rstudio-server` to install the RStudio Server. You don't need both but it won't hurt anything if you have both of them.
-
-    RStudio Server listens on IP address 0.0.0.0 port 8787. It's enabled and running by default. Use `ipconfig` to determine the IP address and browse to port 8787 from another machine. You'll log in with your regular Linux username and password.
-3.  Virtual Machine Manager (64-bit VA only): The "native" Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
-4.  Docker hosting (64-bit or 64-bit VA only): If you want to run (or build) Docker images, install the Docker hosting with `./docker-hosting`. You will need to log out and back in again to join the `docker` group.
+2.  RStudio: type `./rstudio-desktop` to install the RStudio Desktop.
+3.  Virtual Machine Manager (64-bit VA bare metal only): The "native" Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
+4.  Docker hosting (64-bit or 64-bit VA, will run inside a guest machine): If you want to run (or build) Docker images, install the Docker hosting with `./docker-hosting`. You will need to log out and back in again to join the `docker` group.
 
 Bugs? Feature requests? Unclear documentation?
 ----------------------------------------------
