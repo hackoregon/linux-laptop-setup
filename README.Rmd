@@ -79,9 +79,7 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
 
         Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
     * QGIS and PgAdmin3 GUI tools: Type `./qgis-pgadmin3` to install PgAdmin3, the QGIS (Quantum GIS) desktop GUI, and the QGIS map server.
-    * VirtualBox and Vagrant hosting (64-bit VA bare metal only): If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. 
-        During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). You may have to press `Tab` on the first screen to get to the `OK` button. 
-        You will need to log out and back in again after the install to join the `vboxusers` group.
+    * VirtualBox and Vagrant hosting (64-bit VA bare metal only): If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. You will need to log out and back in again after the install to join the `vboxusers` group.
 
 ## Advanced tools
 1. The R platform: type `./r-platform` to install the R platform. This includes:
