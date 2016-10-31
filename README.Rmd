@@ -83,7 +83,9 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
     * QGIS and PgAdmin3 GUI tools: Type `./qgis-pgadmin3` to install PgAdmin3, the QGIS (Quantum GIS) desktop GUI, and the QGIS map server.
     * VirtualBox and Vagrant hosting (64-bit VA bare metal only): If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. 
 
-        The script will install VirtualBox automatically, but you will need to install Vagrant manually from the HashiCorp Vagrant download website (<https://www.vagrantup.com/downloads.html>). The script will give you detailed instructions. You will need to log out and back in again after the install to join the `vboxusers` group.
+        The script will install VirtualBox automatically. Note that you do *not* need the non-open-source VirtualBox Extension pack.
+
+        You will need to install Vagrant manually from the HashiCorp Vagrant download website (<https://www.vagrantup.com/downloads.html>). The script will give you detailed instructions. You will need to log out and back in again after the install to join the `vboxusers` group.
 
 ## Advanced tools
 1. The R platform: type `./r-platform` to install the R platform. This includes:
