@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # what machine have we got?
-if [ `arch` == "x96_64" ]
+if [ `arch` == "x86_64" ]
 then
   export ARCH=64
 else
@@ -10,12 +10,16 @@ fi
 echo  "Your machine is ${ARCH} bits."
 
 echo "You will need to install RStudio® Desktop from the RStudio Preview download website."
+echo ""
 echo "1. Browse to 'https://www.rstudio.com/products/rstudio/download/preview/'."
 echo "2. Find the link to the Ubuntu / Debian package for ${ARCH}-bit systems."
-echo "3. Click the link to open it with the GDebi package installer. This should be the browser default."
-echo "4. Press the 'Install' button. You may have to enter your password."
-echo "5. Close the GDebi window after the install finishes."
+echo "3. Click the link to open it with the GDebi package installer."
+echo "   This should be the browser default."
+echo "4. Press the 'Install Package' button."
+echo "   You may get a dialog box about granting administrative rights."
+echo "   If you do, enter your password and press 'OK'."
+echo "5. When the install finishes, press the 'Close' button."
+echo "   Then close the GDebi window."
 echo ""
 echo "Press 'Enter' when the install has finished."
 read DUMMY
-echo "Log out and back in to join the 'vboxusers' group!"
