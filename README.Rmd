@@ -12,15 +12,16 @@ knitr::opts_chunk$set(echo = TRUE)
 File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 
 ## Design goals
-1. Run at native speed on bare metal, rather than as a guest in a virtual machine or container.
+1. Run at native speed on bare metal, without the overhead of running as a guest in a virtual machine or container.
 2. Work on smaller / older machines that are too small to host a Docker container, a Vagrant box or a full virtual machine guest. This includes 32-bit machines to the extent that the applications do.
 3. Provide Docker, Vagrant / VirtualBox and Virtual Machine Manager hosting on systems with the hardware capability.
 4. Modularity - you only install what you need to get your tasks done.
 5. Use the same software versions that other Hack Oregon projects are using whenever possible.
-6. Provide an easy way to make a Vagrant box / guest Linux virtual machine.
 
 ## Which version of Linux should you use?
-I've designed these scripts on Linux Mint 18 "Sarah" with the Cinnamon desktop (<https://www.linuxmint.com/download.php>). Except for virtual machine hosting, they should work on any of the Linux Mint "Sarah" desktops and any Ubuntu 16.04.1 LTS "Xenial Xerus" desktop, 32 or 64 bits. File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new> if you find problems on a Ubuntu 16.04.1 or Linux Mint 18 system.
+I've designed these scripts on Linux Mint 18 "Sarah" with the Cinnamon desktop (<https://www.linuxmint.com/download.php>). I test them on a Sarah 64-bit Cinnamon system, a Sarah 32-bit KDE system and an Ubuntu 16.04.1 32-bit system with the default "Unity" desktop.
+
+Except for virtual machine hosting, they should work on any of the Linux Mint "Sarah" desktops and any Ubuntu 16.04.1 LTS "Xenial Xerus" desktop, 32 or 64 bits. File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new> if you find problems on an Ubuntu 16.04.1 or Linux Mint 18 system.
 
 If you have some other version of Linux already installed, open an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>. It will only take me a half-day or thereabouts to port them to any recent Fedora, openSUSE or Debian system.
 
@@ -97,6 +98,6 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
 File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 
 ## Todo
-1. Instructions for connecting QGIS to the PostGIS database.
+1. Instructions for connecting QGIS to the PostGIS database. Also, make sure QGIS versions are the same on Linux and Windows.
 1. Front-end tools: I'm not a front-end person so I have no idea what we'll need there. If there's something you want, file an issue and I'll add it.
 2. Django: The last I heard we'll be using Django for some projects. I am working through <https://www.amazon.com/Mastering-Django-Core-Complete-Guide-ebook/dp/B01KR6F4Z2> and can easily add install scripts if anyone wants them.

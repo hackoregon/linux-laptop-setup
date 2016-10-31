@@ -10,17 +10,18 @@ File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 Design goals
 ------------
 
-1.  Run at native speed on bare metal, rather than as a guest in a virtual machine or container.
+1.  Run at native speed on bare metal, without the overhead of running as a guest in a virtual machine or container.
 2.  Work on smaller / older machines that are too small to host a Docker container, a Vagrant box or a full virtual machine guest. This includes 32-bit machines to the extent that the applications do.
 3.  Provide Docker, Vagrant / VirtualBox and Virtual Machine Manager hosting on systems with the hardware capability.
 4.  Modularity - you only install what you need to get your tasks done.
 5.  Use the same software versions that other Hack Oregon projects are using whenever possible.
-6.  Provide an easy way to make a Vagrant box / guest Linux virtual machine.
 
 Which version of Linux should you use?
 --------------------------------------
 
-I've designed these scripts on Linux Mint 18 "Sarah" with the Cinnamon desktop (<https://www.linuxmint.com/download.php>). Except for virtual machine hosting, they should work on any of the Linux Mint "Sarah" desktops and any Ubuntu 16.04.1 LTS "Xenial Xerus" desktop, 32 or 64 bits. File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new> if you find problems on a Ubuntu 16.04.1 or Linux Mint 18 system.
+I've designed these scripts on Linux Mint 18 "Sarah" with the Cinnamon desktop (<https://www.linuxmint.com/download.php>). I test them on a Sarah 64-bit Cinnamon system, a Sarah 32-bit KDE system and an Ubuntu 16.04.1 32-bit system with the default "Unity" desktop.
+
+Except for virtual machine hosting, they should work on any of the Linux Mint "Sarah" desktops and any Ubuntu 16.04.1 LTS "Xenial Xerus" desktop, 32 or 64 bits. File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new> if you find problems on an Ubuntu 16.04.1 or Linux Mint 18 system.
 
 If you have some other version of Linux already installed, open an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>. It will only take me a half-day or thereabouts to port them to any recent Fedora, openSUSE or Debian system.
 
@@ -55,24 +56,28 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
 
 5.  Log out and back in again. This sets the environment variables you need for the Python virtual environments.
 6.  The scripts are modular - you only need to install what you're going to use. By task:
-    -   Data science / machine learning: Install the `jupyter` package by typing `./jupyter`. This will create a Jupyter notebook Python 3 virtualenv. I've included the [`scikit-learn`](http://scikit-learn.org/stable/) machine learning toolkit.
+    -   Python data science / machine learning: Install the `jupyter` package by typing `./jupyter`. This will create a Jupyter notebook Python 3 virtualenv. I've included the [`scikit-learn`](http://scikit-learn.org/stable/) machine learning toolkit.
 
         To run the notebook, type
 
             workon jupyter
             jupyter notebook
 
-        A browser will open with the Jupyter notebook web app.
+        A browser will open with the Jupyter notebook web app. When you're finished, close the browser and type `CTL-C` in the terminal window. You'll see
 
-        To run a Jupyter notebook server, type `./serve-jupyter`. This will open a Jupyter notebook server listening on 0.0.0.0:8888. The script runs `ifconfig` so you can see what your machine's IP address is. Browse to that IP address port 8888 from another machine.
+            Serving notebooks from local directory: /home/znmeb/Projects/linux-laptop-setup
+            0 active kernels 
+            The Jupyter Notebook is running at: http://localhost:8888/
+            Shutdown this notebook server (y/[n])?
+
+        Enter "y" to shut down Jupyter.
+
+        To run a Jupyter notebook server accessible to other machines on the local area network, type `./serve-jupyter`. This will open a Jupyter notebook server listening on 0.0.0.0:8888. The script runs `ifconfig` so you can see what your machine's IP address is. Browse to that IP address port 8888 from another machine.
     -   Database / SQL / GIS: Install PostgreSQL and PostGIS by typing `./postgres`. This will install PostgreSQL and PostGIS and create a PostgreSQL super-user with the same user ID as your Linux user ID.
 
         Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
     -   QGIS and PgAdmin3 GUI tools: Type `./qgis-pgadmin3` to install PgAdmin3, the QGIS (Quantum GIS) desktop GUI, and the QGIS map server.
     -   VirtualBox and Vagrant hosting (64-bit VA only): If you want to host VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. During the installation you'll be asked to accept the VirtualBox Extension Pack's Personal Use and Evaluation License (PUEL). You will need to log out and back in again after the install to join the `vboxusers` group. In theory this works on a 32-bit host but I don't recommend it.
-    -   Dropbox: To install the Dropbox client, type `./dropbox`. This will install the base, but you still need to do a bit of setup. Open your desktop's menu and run the Dropbox app. It will start up and ask you for permission to download a proprietary daemon. Allow it to do so.
-
-        Once the daemon is downloaded, you'll need to log in to Dropbox with your email address and password. If you have two-factor authentication enabled, you'll need your device to receive the one-time code. And you'll need to enter that code in the Dropbox login. Once you've done that, Dropbox will start syncing.
     -   Git Large File Storage: we used this last year for Crop Compass. Note that GitHub charges money for both storage and download bandwidth for this, so be careful! If you need it, type `./git-lfs`.
 
 Advanced tools
@@ -103,6 +108,6 @@ File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 Todo
 ----
 
-1.  Instructions for connecting QGIS to the PostGIS database.
+1.  Instructions for connecting QGIS to the PostGIS database. Also, make sure QGIS versions are the same on Linux and Windows.
 2.  Front-end tools: I'm not a front-end person so I have no idea what we'll need there. If there's something you want, file an issue and I'll add it.
 3.  Django: The last I heard we'll be using Django for some projects. I am working through <https://www.amazon.com/Mastering-Django-Core-Complete-Guide-ebook/dp/B01KR6F4Z2> and can easily add install scripts if anyone wants them.
