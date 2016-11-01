@@ -49,11 +49,8 @@ read DUMMY
 
 # make sure everything's there for the data science students
 echo "Updating the Anaconda distribution"
-source ~/.bashrc
-conda update --yes --all
-conda install seaborn
-conda install scikit-learn
-conda install statsmodels
+~/anaconda3/bin/conda update --yes --all
+~/anaconda3/bin/conda install --yes seaborn scikit-learn statsmodels
 
 echo ""
 echo ""
