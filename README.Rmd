@@ -52,8 +52,8 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
 4. Log out and back in again. This sets the environment variables you need.
 5. The scripts are modular - you only need to install what you're going to use. By task:
     * Python data science / machine learning: type `./anaconda` to install the Anaconda3 Python data science / machine learning tools. 
-    
-        On Linux, Anaconda does not have a GUI installer, nor does it define a desktop-compatible menu entry. The installer is a large (400 megabytes) shell script. You will get detailed instructions from the `anaconda` script.
+
+        On Linux, Anaconda does not have a GUI installer, nor does it define a desktop-compatible menu entry. The installer is a large (400 megabytes) shell script. You will get detailed install instructions when you run the `anaconda` script.
         
         The Jupyter notebook environment shipped in Anaconda includes
         * Python 3
@@ -67,7 +67,7 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
         * seaborn (<http://seaborn.pydata.org/>)
         * statsmodels (<http://statsmodels.sourceforge.net/>)
 
-        To start a Jupyter notebook, open a terminal and type
+        After you've installed Anaconda3, to start a Jupyter notebook, open a terminal and type
         ```
         jupyter notebook
         ```
