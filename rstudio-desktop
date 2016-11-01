@@ -9,7 +9,7 @@ else
 fi
 echo  "Your machine is ${ARCH} bits."
 
-echo "You will need to install RStudio® Desktop from the RStudio Preview download website."
+echo "You will need to install RStudio® Desktop from the RStudio Preview download website:"
 echo ""
 echo "1. Browse to 'https://www.rstudio.com/products/rstudio/download/preview/'."
 echo "2. Find the link to the Ubuntu / Debian package for ${ARCH}-bit systems."

@@ -28,7 +28,7 @@ echo "You will need to install Anaconda from the Anaconda download website:"
 echo ""
 echo "1. Browse to 'https://www.continuum.io/downloads#linux'."
 echo "2. Go to the 'Download for Linux' tab and get the Python 3.5 version for"
-echo "${ARCH}-bit systems."
+echo "   ${ARCH}-bit systems."
 echo "3. Save the file."
 echo "4. Open a new terminal window in the directory where you saved the file."
 echo "5. Type 'bash <name of the downloaded file>'."
@@ -42,10 +42,22 @@ echo "prepend the Anaconda3 location to your PATH. The default is 'no'. Enter"
 echo "'yes' to modify your PATH. The installer will thank you for installing"
 echo "Anaconda3 and exit, leaving you at a terminal prompt."
 echo ""
+echo "You will need to log out and back in again for the PATH magic to happen."
+echo ""
 echo "Press 'Enter' here when the install has finished."
 read DUMMY
 
-echo "You will need to log out and back in again for the PATH magic to happen."
+# make sure everything's there for the data science students
+echo "Updating the Anaconda distribution"
+source ~/.bashrc
+conda update --yes --all
+conda install seaborn
+conda install scikit-learn
+conda install statsmodels
+
+echo ""
+echo ""
+echo ""
 echo "There is no GUI for Anaconda on Linux systems. To start up a Jupyter"
 echo "notebook, open a terminal window and type 'jupyter notebook'. A browser"
 echo "will open with the notebook. Press 'Control-C' in the terminal window"

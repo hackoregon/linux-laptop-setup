@@ -24,7 +24,7 @@ sudo apt install -y virtualbox-5.1
 sudo gpasswd -a ${USER} vboxusers
 
 
-echo "You will need to install Vagrant from the Hashicorp website."
+echo "You will need to install Vagrant from the Hashicorp website:"
 echo ""
 echo "1. Browse to 'https://www.vagrantup.com/downloads.html'."
 echo "2. Find the link to the Debian package for ${ARCH}-bit systems."
