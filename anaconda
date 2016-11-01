@@ -1,0 +1,50 @@
+#! /bin/bash
+
+# LaTeX packages for PDF notebook downloads
+# File an issue at https://github.com/hackoregon/linux-laptop-setup/issues/new if you need others
+sudo apt-get install -y \
+  pandoc \
+  pandoc-citeproc \
+  texlive-latex-base \
+  texlive-fonts-recommended \
+  texlive-latex-recommended \
+  texlive-latex-extra \
+  texlive-generic-recommended
+
+# use US letter paper size
+sudo paperconfig -p letter
+sudo tl-paper set all letter
+
+# what machine have we got?
+if [ `arch` == "x86_64" ]
+then
+  export ARCH=64
+else
+  export ARCH=32
+fi
+echo "Your machine is ${ARCH} bits."
+echo ""
+echo "You will need to install Anaconda from the Anaconda download website."
+echo ""
+echo "1. Browse to 'https://www.continuum.io/downloads#linux'."
+echo "2. Go to the 'Download for Linux' tab and get the Python 3.5 version for"
+echo "${ARCH}-bit systems."
+echo "3. Save the file."
+echo "4. Open a new terminal window in the directory where you saved the file."
+echo "5. Type 'bash <name of the downloaded file'."
+echo "6. At the '>>>' prompt, press 'Enter'."
+echo "7. Page through the license with the space bar."
+echo "8. When you get the next '>>>' prompt, enter 'yes'."
+echo "9. At the next '>>>', press 'Enter' to accept the default install location."
+echo ""
+echo "The install will start. When it is finished, you'll be asked if you want to"
+echo "prepend the Anaconda3 location to your PATH. The default is 'no'. Enter"
+echo "'yes' to modify your PATH. The installer will thank you for installing"
+echo "Anaconda3 and exit, leaving you at a terminal prompt."
+echo ""
+echo "Press 'Enter' here when the install has finished."
+read DUMMY
+
+echo "You will need to log out and back in again for the PATH magic to happen."
+echo "There is no GUI for Anaconda on Linux systems. To start up a Jupyter"
+echo "notebook, open a terminal window and type 'jupyter notebook'.
