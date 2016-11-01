@@ -53,12 +53,16 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
     `sudo` will remember that you have authenticated and not bother you again for a system-dependent time period. If that timeout expires, you will have to authenticate again. For install scripts that run a long time, you'll need to watch for this.
 4.  Type `./1core`. This will
     -   update all packages to the latest version,
-    -   install a few core utilities, including `git` and `vim`, and
-    -   install the Python utility `virtualenvwrapper`, which allows isolating Python applications in named virtual environments.
+    -   install a few core utilities, including `lynx`, `git` and `vim`, and
+    -   set the EDITOR environment variable to `/usr/bin/vim`.
 
-5.  Log out and back in again. This sets the environment variables you need for Python virtual environments.
+5.  Log out and back in again. This sets the environment variables you need.
 6.  The scripts are modular - you only need to install what you're going to use. By task:
-    -   Python data science / machine learning: type `./jupyter` to install the Python data science / machine learning tools. This will create a Jupyter notebook Python 3 virtualenv. The notebook environment includes
+    -   Python data science / machine learning: type `./anaconda` to install the Anaconda3 Python data science / machine learning tools.
+
+        On Linux, Anaconda does not have a GUI installer, nor does it define a desktop-compatible menu entry. The installer is a large (400 megabytes) shell script. You will get detailed instructions from the `anaconda` script.
+
+        The Jupyter notebook environment shipped in Anaconda includes
         -   Python 3
         -   IPython
         -   NumPy
@@ -67,10 +71,11 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
         -   SymPy
         -   pandas
         -   scikit-learn (<http://scikit-learn.org/stable/>)
+        -   seaborn (<http://seaborn.pydata.org/>)
+        -   statsmodels (<http://statsmodels.sourceforge.net/>)
 
-        To run the notebook, type
+        To start a Jupyter notebook, open a terminal and type
 
-            workon jupyter
             jupyter notebook
 
         A browser will open with the Jupyter notebook web app. When you're finished, close the browser and type `Control-C` in the terminal window. You'll see
@@ -80,7 +85,7 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
             The Jupyter Notebook is running at: http://localhost:8888/
             Shutdown this notebook server (y/[n])?
 
-        Enter "y" to shut down Jupyter.
+        Enter "y" to shut down Jupyter. You can close the terminal.
     -   Database / SQL / GIS: type `./postgres` to install PostgreSQL and PostGIS. This will install PostgreSQL 9.5 and PostGIS 2.2 and create a PostgreSQL super-user with the same user ID as your Linux user ID.
 
         Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
