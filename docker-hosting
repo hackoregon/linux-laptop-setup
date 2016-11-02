@@ -8,7 +8,7 @@ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
 sudo apt-get update && sudo apt-file update
 echo "https://apt.dockerproject.org/repo repository added!"
 
-sudo apt-get install -y \
+sudo apt-get install -qqy \
   aufs-tools \
   cgroupfs-mount \
   docker-engine \

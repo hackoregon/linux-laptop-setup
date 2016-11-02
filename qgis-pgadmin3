@@ -6,4 +6,4 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 073D307A618E5811
 sudo apt-get update && sudo apt-file update
 echo "http://qgis.org/debian repository added!"
 
-sudo apt-get install -y pgadmin3 qgis
+sudo apt-get install -qqy pgadmin3 qgis

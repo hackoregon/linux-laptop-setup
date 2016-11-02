@@ -7,4 +7,4 @@ echo "https://packagecloud.io/github/git-lfs/linuxmint/ repository added!"
 echo "https://packagecloud.io/github/git-lfs/linuxmint/ repository added!"
 
 # install the package
-sudo apt-get install -y git-lfs
+sudo apt-get install -qqy git-lfs

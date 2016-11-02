@@ -7,7 +7,7 @@ sudo apt-get update && sudo apt-file update
 echo "https://cran.rstudio.com/bin/linux/ubuntu repository added"
 
 # Packages
-sudo apt-get install -y \
+sudo apt-get install -qqy \
   calibre \
   default-java-plugin \
   default-jdk \

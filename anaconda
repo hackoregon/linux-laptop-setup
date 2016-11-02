@@ -2,7 +2,7 @@
 
 # LaTeX packages for PDF notebook downloads
 # File an issue at https://github.com/hackoregon/linux-laptop-setup/issues/new if you need others
-sudo apt-get install -y \
+sudo apt-get install -qqy \
   pandoc \
   pandoc-citeproc \
   texlive-latex-base \
