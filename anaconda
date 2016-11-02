@@ -50,7 +50,7 @@ read DUMMY
 # make sure everything's there for the data science students
 echo "Updating the Anaconda distribution"
 ~/anaconda3/bin/conda update --yes --all
-~/anaconda3/bin/conda install --yes seaborn scikit-learn statsmodels
+~/anaconda3/bin/conda install --yes seaborn
 
 echo ""
 echo ""
