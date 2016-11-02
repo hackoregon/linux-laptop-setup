@@ -16,6 +16,7 @@ fi
 sudo cp virtualbox.list /etc/apt/sources.list.d/
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 sudo apt-get update && sudo apt-file update
+echo "http://download.virtualbox.org/virtualbox/debian repository added!"
 
 # install VirtualBox
 sudo apt install -y virtualbox-5.1
