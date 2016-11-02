@@ -53,67 +53,96 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
     `sudo` will remember that you have authenticated and not bother you again for a system-dependent time period. If that timeout expires, you will have to authenticate again. For install scripts that run a long time, you'll need to watch for this.
 4.  Type `./1core`. This will
     -   update all packages to the latest version,
-    -   install a few core utilities, including `lynx`, `git` and `vim`, and
-    -   set the EDITOR environment variable to `/usr/bin/vim`.
+    -   install a few core command-line utilities, including `lynx`, `git` and `vim`.
 
 5.  Log out and back in again. This sets the environment variables you need.
-6.  The scripts are modular - you only need to install what you're going to use. By task:
-    -   Python data science / machine learning: type `./anaconda` to install the Anaconda3 Python data science / machine learning tools.
+6.  The scripts are modular - you only need to install what you're going to use.
 
-        On Linux, Anaconda does not have a GUI installer, nor does it define a desktop-compatible menu entry. The installer is a large (400 megabytes) shell script. You will get detailed install instructions when you run the `anaconda` script.
+Python data science / machine learning
+--------------------------------------
 
-        The Jupyter notebook environment shipped in Anaconda includes
-        -   Python 3
-        -   IPython
-        -   NumPy
-        -   SciPy
-        -   Matplotlib
-        -   SymPy
-        -   pandas
-        -   scikit-learn (<http://scikit-learn.org/stable/>)
-        -   seaborn (<http://seaborn.pydata.org/>)
-        -   statsmodels (<http://statsmodels.sourceforge.net/>)
+We are using the Anaconda3 Python distribution for data science / machine learning tasks. To install Anaconda3, type `./anaconda`.
 
-        After you've installed Anaconda3, to start a Jupyter notebook, open a terminal and type
+On Linux, Anaconda3 does ***not*** have a GUI installer, nor does it define a desktop-compatible menu entry. The installer is a large (400 megabytes) shell script. You will get detailed install instructions when you run the `anaconda` script.
 
-            jupyter notebook
+Because it's a shell script, the install process is a bit tricky, involving *two* terminal windows. Please read the instructions carefully before doing the install.
 
-        A browser will open with the Jupyter notebook web app. When you're finished, close the browser and type `Control-C` in the terminal window. You'll see
+The Jupyter notebook environment shipped in Anaconda3 includes
 
-            Serving notebooks from local directory: /path/to/your/directory/
-            0 active kernels 
-            The Jupyter Notebook is running at: http://localhost:8888/
-            Shutdown this notebook server (y/[n])?
+-   Python 3
+-   IPython
+-   NumPy
+-   SciPy
+-   Matplotlib
+-   SymPy
+-   pandas
+-   scikit-learn (<http://scikit-learn.org/stable/>)
+-   seaborn (<http://seaborn.pydata.org/>)
+-   statsmodels (<http://statsmodels.sourceforge.net/>)
 
-        Enter "y" to shut down Jupyter. You can close the terminal.
-    -   Database / SQL / GIS: type `./postgres` to install PostgreSQL and PostGIS. This will install PostgreSQL 9.5 and PostGIS 2.2 and create a PostgreSQL super-user with the same user ID as your Linux user ID.
+After you've installed Anaconda3, to start a Jupyter notebook, open a terminal and type
 
-        Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
-    -   QGIS and PgAdmin3 GUI tools: Type `./qgis-pgadmin3` to install PgAdmin3, the QGIS (Quantum GIS) desktop GUI, and the QGIS map server.
-    -   VirtualBox and Vagrant hosting (64-bit VA bare metal only): If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`.
+    ~/anaconda3/bin/jupyter notebook
 
-        The script will install VirtualBox automatically. Note that you do *not* need the non-open-source VirtualBox Extension pack.
+A browser will open with the Jupyter notebook web app. When you're finished, close the browser and type `Control-C` in the terminal window. You'll see
 
-        You will need to install Vagrant manually from the HashiCorp Vagrant download website (<https://www.vagrantup.com/downloads.html>). The script will give you detailed instructions. You will need to log out and back in again after the install to join the `vboxusers` group.
+    Serving notebooks from local directory: /path/to/your/directory/
+    0 active kernels 
+    The Jupyter Notebook is running at: http://localhost:8888/
+    Shutdown this notebook server (y/[n])?
+
+Enter "y" to shut down Jupyter. You can close the terminal.
+
+Database / SQL / GIS
+--------------------
+
+To install the PostgreSQL database and PostGIS GIS extensions, type `./postgres`. This will install PostgreSQL 9.5 and PostGIS 2.2 and create a PostgreSQL super-user with the same user ID as your Linux user ID.
+
+Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
+
+QGIS and PgAdmin3 GUI tools
+---------------------------
+
+Type `./qgis-pgadmin3` to install the QGIS (Quantum GIS) and PgAdmin3 desktop GUI tools.
+
+VirtualBox and Vagrant hosting (64-bit VA bare metal only)
+----------------------------------------------------------
+
+If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. The script will install VirtualBox automatically. Note that you do *not* need the non-open-source VirtualBox Extension pack.
+
+You will need to install Vagrant manually from the HashiCorp Vagrant download website (<https://www.vagrantup.com/downloads.html>). The script will give you detailed instructions. You will need to log out and back in again after the install to join the `vboxusers` group.
 
 Advanced tools
 --------------
 
-1.  The R platform: type `./r-platform` to install the R platform. This includes:
+### The R platform
 
-    -   R
-    -   Java
-    -   The `tidyverse` data wrangling, modeling and visualization packages
-    -   The `Shiny` interactive application development package
-    -   The `flexdashboard`, `bookdown`, `tufte` and `rticles` authoring packages, and
-    -   The `devtools` and `roxygen2` package development tools.
+Type `./r-platform` to install the R platform. This includes:
 
-    This takes a long time to install. You will probably have to watch it, because if the Linux package install takes long enough, it will pause wanting a `sudo` password entry.
+-   R
+-   Java
+-   The `tidyverse` data wrangling, modeling and visualization packages
+-   The `Shiny` interactive application development package
+-   The `flexdashboard`, `bookdown`, `tufte` and `rticles` authoring packages, and
+-   The `devtools` and `roxygen2` package development tools.
 
-2.  RStudio: type `./rstudio-desktop` to install the RStudio Desktop. You will need to install RStudio Desktop manually from the RStudio Preview download website (<https://www.rstudio.com/products/rstudio/download/preview/>). The script will give you detailed instructions.
-3.  Docker hosting (64-bit or 64-bit VA, bare metal or inside a 64-bit guest machine): if you want to run (or build) Docker images, install Docker hosting with `./docker-hosting`. You will need to log out and back in again to join the `docker` group.
-4.  Virtual Machine Manager (64-bit VA bare metal only): the native Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
-5.  Git Large File Storage: we used this last year for Crop Compass. Note that GitHub charges money for both storage and download bandwidth for this, so be careful! If you need it, type `./git-lfs`.
+This takes a long time to install. You will probably have to watch it, because if the Linux package install takes long enough, it will pause wanting a `sudo` password entry.
+
+### RStudio Desktop
+
+Type `./rstudio-desktop` to install the RStudio Desktop. You will need to install RStudio Desktop manually from the RStudio Preview download website (<https://www.rstudio.com/products/rstudio/download/preview/>). The script will give you detailed instructions.
+
+### Docker hosting (64-bit or 64-bit VA, bare metal or inside a 64-bit guest machine)
+
+If you want to run (or build) Docker images, install Docker hosting with `./docker-hosting`. You will need to log out and back in again to join the `docker` group.
+
+### Virtual Machine Manager (64-bit VA bare metal only)
+
+The native Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
+
+### Git Large File Storage
+
+We used this last year for Crop Compass. Note that GitHub charges money for both storage and download bandwidth for this, so be careful! If you need it, type `./git-lfs`.
 
 Bugs? Feature requests? Unclear documentation?
 ----------------------------------------------
