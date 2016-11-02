@@ -47,8 +47,7 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
     `sudo` will remember that you have authenticated and not bother you again for a system-dependent time period. If that timeout expires, you will have to authenticate again. For install scripts that run a long time, you'll need to watch for this.
 3. Type `./1core`. This will 
     * update all packages to the latest version,
-    * install a few core utilities, including `lynx`, `git` and `vim`, and
-    * set the EDITOR environment variable to `/usr/bin/vim`.
+    * install a few core command-line utilities, including `lynx`, `git` and `vim`.
 4. Log out and back in again. This sets the environment variables you need.
 5. The scripts are modular - you only need to install what you're going to use. By task:
     * Python data science / machine learning: type `./anaconda` to install the Anaconda3 Python data science / machine learning tools. 
