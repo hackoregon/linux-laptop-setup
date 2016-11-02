@@ -1,3 +1,8 @@
 #! /bin/bash -v
 
-sudo apt-get install -y pgadmin3 qgis qgis-server
+# QGIS repo for latest stable packages
+sudo cp qgis.list /etc/apt/sources.list.d/
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 073D307A618E5811
+sudo apt-get update && sudo apt-file update
+
+sudo apt-get install -y pgadmin3 qgis
