@@ -7,7 +7,9 @@ sudo apt-get install -y \
   postgresql-contrib \
   postgresql-doc \
   postgis \
-  postgis-doc
+  postgis-doc \
+  postgresql-9.5-pgrouting \
+  postgresql-9.5-pgrouting-doc
 
 # make yourself a PostgreSQL superuser
 sudo su -c "createuser -s ${USER}" postgres
