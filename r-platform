@@ -4,7 +4,6 @@
 sudo cp cran-ubuntu.list /etc/apt/sources.list.d
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 sudo apt-get update && sudo apt-file update
-echo "https://cran.rstudio.com/bin/linux/ubuntu repository added"
 
 # Packages
 sudo apt-get install -qqy \
@@ -61,3 +60,4 @@ R -e 'install.packages(c("devtools", "roxygen2"))'
 # Authoring
 R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"))'
 R -e 'devtools::install_github("rstudio/bookdown", build_vignettes = TRUE)'
+echo "https://cran.rstudio.com/bin/linux/ubuntu repository added"

@@ -16,7 +16,6 @@ fi
 sudo cp virtualbox.list /etc/apt/sources.list.d/
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 sudo apt-get update && sudo apt-file update
-echo "http://download.virtualbox.org/virtualbox/debian repository added!"
 
 # install VirtualBox
 sudo apt install -y virtualbox-5.1
@@ -42,4 +41,5 @@ echo "   Then close the installer window and the browser."
 echo ""
 echo "Press 'Enter' when the install has finished."
 read DUMMY
+echo "http://download.virtualbox.org/virtualbox/debian repository added!"
 echo "Log out and back in to join the 'vboxusers' group!"
