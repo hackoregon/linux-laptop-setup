@@ -1,0 +1,3 @@
+alias activate="source $HOME/anaconda3/bin/activate"
+alias deactivate="source $HOME/anaconda3/bin/deactivate"
+alias conda="$HOME/anaconda3/bin/conda"
