@@ -47,7 +47,8 @@ echo ""
 echo "The installer will thank you for installing Anaconda3 and exit, leaving"
 echo "you at a terminal prompt. Close that terminal and return here."
 echo ""
-echo "Press 'Enter' here when the install has finished."
+echo "Press 'Enter' here when the install has finished and you've closed the"
+echo "other terminal."
 read DUMMY
 
 # make sure everything's there for the data science students
