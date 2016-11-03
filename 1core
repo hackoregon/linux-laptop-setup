@@ -1,12 +1,12 @@
 #! /bin/bash
 
-# sync package repo metadata
-sudo apt-get update
+echo "syncing package repo metadata"
+sudo apt-get update > /dev/null
 
-# upgrade any packages that need it
-sudo apt-get upgrade -y
+echo "upgrading any packages that need it"
+sudo apt-get upgrade -y > /dev/null
 
-# install the core packages
+echo "installing the core packages"
 sudo apt-get install -qqy \
   apt-file \
   aria2 \
@@ -16,7 +16,8 @@ sudo apt-get install -qqy \
   git \
   lynx \
   vim-nox \
-  wget
+  wget \
+  > /dev/null
 
-# run apt-file update
-sudo apt-file update
+echo "updating the apt-file index"
+sudo apt-file update > /dev/null
