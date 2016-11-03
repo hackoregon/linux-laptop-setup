@@ -3,7 +3,7 @@
 echo "Adding CRAN repository for R packages"
 sudo cp cran-ubuntu.list /etc/apt/sources.list.d
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-sudo apt-get update > /dev/null && sudo apt-file update > /dev/null
+sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
 
 echo "Installing OS packages - this will take some time!"
 sudo apt-get install -qqy \
