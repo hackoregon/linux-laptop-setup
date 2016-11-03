@@ -1,4 +1,0 @@
-alias conda="$HOME/anaconda3/bin/conda"
-alias anaconda-navigator="$HOME/anaconda3/bin/anaconda-navigator"
-alias source-activate="source $HOME/anaconda3/bin/activate"
-alias source-deactivate="source $HOME/anaconda3/bin/deactivate"
