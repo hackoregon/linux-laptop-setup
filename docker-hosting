@@ -2,16 +2,19 @@
 
 # upstream repository
 # https://docs.docker.com/engine/installation/linux/ubuntulinux/
+echo "Adding the Docker package repository"
 sudo cp docker.list /etc/apt/sources.list.d/
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
   --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-sudo apt-get update && sudo apt-file update
+sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
 
+echo "Installing Docker packages"
 sudo apt-get install -qqy \
   aufs-tools \
   cgroupfs-mount \
   docker-engine \
-  linux-image-extra-$(uname -r)
+  linux-image-extra-$(uname -r) \
+  > /dev/null
 
 sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
 echo "https://apt.dockerproject.org/repo repository added!"
