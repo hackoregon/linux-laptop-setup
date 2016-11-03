@@ -1,10 +1,8 @@
 #! /bin/bash
 
-# install the repository
+echo "Adding the Git LFS repository"
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-sudo apt-get update && sudo apt-file update
+sudo apt-get update > /dev/null && sudo apt-file update > /dev/null
 
-# install the package
-sudo apt-get install -qqy git-lfs
-echo "https://packagecloud.io/github/git-lfs/linuxmint/ repository added!"
-echo "https://packagecloud.io/github/git-lfs/linuxmint/ repository added!"
+echo "Installing Git LFS"
+sudo apt-get install -qqy git-lfs > /dev/null
