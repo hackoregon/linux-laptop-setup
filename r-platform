@@ -1,11 +1,11 @@
 #! /bin/bash
 
-# add repository for latest R
+echo "Adding CRAN repository for R packages"
 sudo cp cran-ubuntu.list /etc/apt/sources.list.d
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-sudo apt-get update && sudo apt-file update
+sudo apt-get update > /dev/null && sudo apt-file update > /dev/null
 
-# Packages
+echo "Installing OS packages - this will take some time!"
 sudo apt-get install -qqy \
   calibre \
   default-java-plugin \
@@ -28,36 +28,37 @@ sudo apt-get install -qqy \
   texlive-latex-extra \
   texlive-latex-recommended  \
   texlive-xetex  \
-  xindy
+  xindy \
+  > /dev/null
 
 # use US letter paper size
 sudo paperconfig -p letter
 sudo tl-paper set all letter
 
-# R package installs need TMPDIR on "hard drive"
+echo "Creating a TMPDIR on hard drive for R package installs"
 sudo mkdir -p /TMPDIR
 sudo chmod a+rwx /TMPDIR
 sudo cp Rprofile.site `R RHOME`/etc/
 
-# set job count for makes installing R packages
+echo "Setting the job count for parallel 'make' operations"
 sudo sed -i "s;^MAKE.*$;MAKE='make -j 1';" `R RHOME`/etc/Renviron
 
-# Test Java
+echo "Testing Java interface"
 sudo R CMD javareconf
 
-# create empty library
+echo "Creating an R package library for $USER"
 R --no-save < `R RHOME`/etc/Rprofile.site
 
-# install the tidyverse
-R -e 'install.packages(c("tidyverse", "XML"))'
+echo "Installing the tidyverse"
+R -e 'install.packages(c("tidyverse", "XML"), quiet = TRUE)'
 
-# Shiny
-R -e 'install.packages("shiny")'
+echo "Installing Shiny"
+R -e 'install.packages("shiny", quiet = TRUE)'
 
-# Package development
-R -e 'install.packages(c("devtools", "roxygen2"))'
+echo "Installing R package development tools"
+R -e 'install.packages(c("devtools", "roxygen2"), quiet = TRUE)'
 
-# Authoring
-R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"))'
+echo "Installing authoring tools"
+R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"), quiet = TRUE)'
 R -e 'devtools::install_github("rstudio/bookdown", build_vignettes = TRUE)'
 echo "https://cran.rstudio.com/bin/linux/ubuntu repository added"
