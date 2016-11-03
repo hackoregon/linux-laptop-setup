@@ -3,20 +3,22 @@
 # use upstream PostGIS repo
 sudo cp postgis.list /etc/apt/sources.list.d/
 wget -q -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc \
-  | apt-key add -
+  | sudo apt-key add -
 sudo apt-get update && sudo apt-file update
 
 # Packages
 sudo apt-get install -qqy \
-  pgadmin3 \
-  postgresql \
-  postgresql-client \
-  postgresql-contrib \
-  postgresql-doc \
+  postgresql-9.5 \
+  postgresql-client-9.5 \
+  postgresql-contrib-9.5 \
+  postgresql-doc-9.5 \
   postgis \
   postgis-doc \
+  postgresql-9.5-postgis-2.2 \
+  postgresql-plpython3-9.5 \
   postgresql-9.5-pgrouting \
-  postgresql-9.5-pgrouting-doc
+  postgresql-9.5-pgrouting-doc \
+  postgresql-9.5-postgis-2.2-scripts
 
 # make yourself a PostgreSQL superuser
 sudo su -c "createuser -s ${USER}" postgres
