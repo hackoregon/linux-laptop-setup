@@ -1,11 +1,13 @@
 #! /bin/bash
 
+echo "Installing Virtual Machine Manager"
 sudo apt-get install -qqy \
   virt-manager \
   qemu-kvm \
   qemu-utils \
   gir1.2-spice-client-gtk-3.0 \
   libspice-client-gtk-3.0-4 \
-  libvirt-bin
+  libvirt-bin \
+  > /dev/null
 sudo gpasswd -a ${USER} libvirtd
 echo "Log out and back in to join the 'libvirt' group!"
