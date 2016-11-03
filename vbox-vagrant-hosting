@@ -12,13 +12,13 @@ else
   echo "Warning: Hack Oregon virtual machines / Vagrant boxes won't work."
 fi
 
-# add the Oracle repository and key
+echo "Adding the Oracle VirtualBox repository"
 sudo cp virtualbox.list /etc/apt/sources.list.d/
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-sudo apt-get update && sudo apt-file update
+sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
 
-# install VirtualBox
-sudo apt install -y virtualbox-5.1
+echo "Installing VirtualBox"
+sudo apt-get install -qqy virtualbox-5.1 > /dev/null
 
 # join the group
 sudo gpasswd -a ${USER} vboxusers
