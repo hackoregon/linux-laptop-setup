@@ -28,7 +28,6 @@ else
 fi
 
 echo "Your machine is ${ARCH} bits."
-echo "Downloading the Miniconda3 installer to $HOME/Downloads."
 echo ""
 
 # http://conda.pydata.org/miniconda.html
@@ -43,33 +42,16 @@ wget -q https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-$TAG.sh
 echo "Download is finished."
 popd
 
-echo "Removing any existing Miniconda3 installation!"
-rm -fr $HOME/miniconda3
+echo "Ready to install Miniconda3. Notes:"
 echo ""
-echo "Ready to install Miniconda3 - please read *all* the instructions below carefully before"
-echo "starting!"
+echo "1. This is a batch install using all the defaults. License approval on your part is assumed."
+echo "2. The installer will not overwrite an existing Miniconda3 installation."
 echo ""
-echo "1. At the first '>>>' prompt, press 'Enter'. Page through the license with the"
-echo "   space bar."
-echo "2. When you get the next '>>>' prompt, enter 'yes' to approve the license terms."
-echo "3. At the next '>>>', press 'Enter' to confirm the default install location."
-echo ""
-echo "The install will start. When it is finished, you'll be asked if you want to"
-echo "prepend the Miniconda3 location to your PATH. The default is 'no'. Press"
-echo "'Enter' to accept the default. Do *not* enter 'yes'! Doing so will break"
-echo "your system!"
-echo ""
-echo "The installer will close its window when it finishes."
-echo ""
-
-# go for it!
-COMMAND="bash $HOME/Downloads/Miniconda3-latest-Linux-$TAG.sh"
 echo "Press 'Enter' when you're ready to install Miniconda3."
 read DUMMY
-x-terminal-emulator -e $COMMAND
 
-echo "Press 'Enter' here when the install has finished and closed the other terminal."
-read DUMMY
+# go for it!
+bash $HOME/Downloads/Miniconda3-latest-Linux-$TAG.sh -b
 
 # make sure everything's there for the data science students
 echo ""
