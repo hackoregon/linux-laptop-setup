@@ -9,10 +9,11 @@ else
 fi
 echo  "Your machine is ${ARCH} bits."
 
-echo "You will need to install RStudio® Desktop from the RStudio Preview download website:"
+echo "You will need to install RStudio® Desktop from the RStudio download website:"
 echo ""
-echo "1. Browse to 'https://www.rstudio.com/products/rstudio/download/preview/'."
+echo "1. Browse to 'https://www.rstudio.com/products/rstudio/download3/'."
 echo "2. Find the link to the Ubuntu / Debian package for ${ARCH}-bit systems."
+echo "   The package download links are towards the bottom of the page."
 echo "3. Click the link to open it with the package installer."
 echo "   This should be the browser default."
 echo "4. Press the 'Install' button."
