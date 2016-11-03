@@ -1,7 +1,14 @@
 #! /bin/bash
 
+# use upstream PostGIS repo
+sudo cp postgis.list /etc/apt/sources.list.d/
+wget -q -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc \
+  | apt-key add -
+sudo apt-get update && sudo apt-file update
+
 # Packages
 sudo apt-get install -qqy \
+  pgadmin3 \
   postgresql \
   postgresql-client \
   postgresql-contrib \
@@ -13,4 +20,5 @@ sudo apt-get install -qqy \
 
 # make yourself a PostgreSQL superuser
 sudo su -c "createuser -s ${USER}" postgres
+echo "http://apt.postgresql.org/pub/repos/apt repository added!"
 echo "You are now a PostgreSQL super-user with ID '${USER}'!"
