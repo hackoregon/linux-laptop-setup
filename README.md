@@ -61,15 +61,12 @@ You'll need wall power and a reliable internet connection. Coffee shop WiFi can 
 Python data science / machine learning
 --------------------------------------
 
-We are using the Anaconda3 Python distribution for data science / machine learning tasks. To install Anaconda3, type `./anaconda`.
+We are using the Miniconda3 Python distribution for data science / machine learning tasks. To install the data science tools, type `./data-science-services`. You will get detailed install instructions when you run the script.
 
-On Linux, Anaconda3 does ***not*** have a GUI installer, nor does it define a desktop-compatible menu entry. The installer is a large (400 megabytes) shell script. You will get detailed install instructions when you run the `anaconda` script.
-
-Because it's a shell script, the install process is a bit tricky, involving *two* terminal windows. Please read the instructions carefully before doing the install.
-
-The Jupyter notebook environment shipped in Anaconda3 includes
+The data science services environment includes
 
 -   Python 3
+-   the Jupyter notebook server
 -   IPython
 -   NumPy
 -   SciPy
@@ -80,35 +77,37 @@ The Jupyter notebook environment shipped in Anaconda3 includes
 -   seaborn (<http://seaborn.pydata.org/>)
 -   statsmodels (<http://statsmodels.sourceforge.net/>)
 
-After you've installed Anaconda3, to start a Jupyter notebook, open a terminal and type
+To start a Jupyter notebook with all the tools, open a terminal and enter `activate-data-science`. Your prompt will change to something like
 
-    ~/anaconda3/bin/jupyter notebook
+    (data-science) <stuff>
 
-A browser will open with the Jupyter notebook web app. When you're finished, close the browser and type `Control-C` in the terminal window. You'll see
+and you can do all the command line operations. But you'll probably want to start a Jupyter notebook. To do that, type `jupyter notebook`. The notebook server will start up and a browser window / tab will open browsing to the server.
+
+When you're finished, close the browser. Then type `Control-C` in the terminal window. You'll see
 
     Serving notebooks from local directory: /path/to/your/directory/
     0 active kernels 
     The Jupyter Notebook is running at: http://localhost:8888/
     Shutdown this notebook server (y/[n])?
 
-Enter "y" to shut down Jupyter. You can close the terminal.
+Enter "y" to shut down Jupyter. Then enter `deactivate-data-science` and close the terminal.
 
 Database / SQL / GIS
 --------------------
 
-To install the PostgreSQL database and PostGIS GIS extensions, type `./postgres`. This will install PostgreSQL 9.5 and PostGIS 2.2 and create a PostgreSQL super-user with the same user ID as your Linux user ID.
+To install the PostgreSQL database and PostGIS GIS extensions, type `./database-gis-services`. This will install PostgreSQL 9.5 and PostGIS 2.2 and create a PostgreSQL super-user with the same user ID as your Linux user ID.
 
 Note that as installed, the PostgreSQL service is only accessible inside the workstation / laptop. If you need to expose it to a local area network, you'll need to do some configuration.
 
 QGIS and PgAdmin3 GUI tools
 ---------------------------
 
-Type `./qgis-pgadmin3` to install the QGIS (Quantum GIS) and PgAdmin3 desktop GUI tools.
+Type `.database-gis-gui` to install the QGIS (Quantum GIS) and PgAdmin3 desktop GUI tools.
 
 VirtualBox and Vagrant hosting (64-bit VA bare metal only)
 ----------------------------------------------------------
 
-If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant`. The script will install VirtualBox automatically. Note that you do *not* need the non-open-source VirtualBox Extension pack.
+If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant-hosting`. The script will install VirtualBox automatically. Note that you do *not* need the non-open-source VirtualBox Extension pack.
 
 You will need to install Vagrant manually from the HashiCorp Vagrant download website (<https://www.vagrantup.com/downloads.html>). The script will give you detailed instructions. You will need to log out and back in again after the install to join the `vboxusers` group.
 
@@ -130,7 +129,7 @@ This takes a long time to install. You will probably have to watch it, because i
 
 ### RStudio Desktop
 
-Type `./rstudio-desktop` to install the RStudio Desktop. You will need to install RStudio Desktop manually from the RStudio Preview download website (<https://www.rstudio.com/products/rstudio/download/preview/>). The script will give you detailed instructions.
+Type `./rstudio-desktop` to install the RStudio Desktop. You will need to install RStudio Desktop manually from the RStudio download website (<https://www.rstudio.com/products/rstudio/download3/>). The script will give you detailed instructions.
 
 ### Docker hosting (64-bit or 64-bit VA, bare metal or inside a 64-bit guest machine)
 
@@ -138,7 +137,7 @@ If you want to run (or build) Docker images, install Docker hosting with `./dock
 
 ### Virtual Machine Manager (64-bit VA bare metal only)
 
-The native Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
+The native Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager-hosting`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
 
 ### Git Large File Storage
 
@@ -152,6 +151,6 @@ File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>.
 Todo
 ----
 
-1.  Instructions for connecting QGIS to the PostGIS database. Also, make sure QGIS versions are the same on Linux and Windows.
+1.  Instructions for connecting QGIS to the PostGIS database.
 2.  Front-end tools: I'm not a front-end person so I have no idea what we'll need there. If there's something you want, file an issue and I'll add it.
 3.  Django: The last I heard we'll be using Django for some projects. I am working through <https://www.amazon.com/Mastering-Django-Core-Complete-Guide-ebook/dp/B01KR6F4Z2> and can easily add install scripts if anyone wants them.
