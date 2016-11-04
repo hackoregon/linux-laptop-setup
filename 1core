@@ -11,7 +11,7 @@ sudo apt-get install -qqy \
   apt-file \
   curl \
   dkms \
-  gdebi \
+  gdebi-core \
   git \
   wget \
   > 1core.log 2>&1
