@@ -1,5 +1,6 @@
 #! /bin/bash
 
+vagrant global-status
 echo "Destroying existing box without confirmation"
 vagrant destroy --force
 echo "Removing existing Vagrantfile"
