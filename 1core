@@ -9,10 +9,13 @@ sudo apt-get upgrade -y > upgrade.log 2>&1
 echo "installing the core packages"
 sudo apt-get install -qqy \
   apt-file \
+  build-essential \
   curl \
   dkms \
   gdebi-core \
   git \
+  linux-headers-$(uname -r) \
+  vim-nox \
   wget \
   > 1core.log 2>&1
 
