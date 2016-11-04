@@ -3,6 +3,7 @@
 # LaTeX packages for PDF notebook downloads
 # File an issue at https://github.com/hackoregon/linux-laptop-setup/issues/new if you need others
 echo "Installing LaTeX packages for notebook PDF downloads"
+echo "This will take some time"
 sudo apt-get install -qqy \
   pandoc \
   pandoc-citeproc \
@@ -59,7 +60,7 @@ echo "Updating the Miniconda distribution."
 ~/miniconda3/bin/conda update --yes --all
 
 echo "Creating a Conda environment named 'data-science' with 'jupyter', 'seaborn', "
-echo "'statsmodels' and 'scikit-learn'."
+echo "'statsmodels' and 'scikit-learn'. This will not overwrite an existing 'data-science'."
 ~/miniconda3/bin/conda create --yes --name data-science jupyter seaborn statsmodels scikit-learn
 
 echo ""
