@@ -9,9 +9,6 @@ sudo apt-get install -qqy \
   virtualbox-guest-additions-iso \
   virtualbox-qt
 
-echo "updating the apt-file index"
-sudo apt-file update > /dev/null 2>&1
-
 # join the group
 sudo gpasswd -a ${USER} vboxusers
 echo "Log out and back in to join the 'vboxusers' group!"
