@@ -5,9 +5,9 @@ sudo apt-get install -qqy \
   vagrant \
   virtualbox \
   virtualbox-dkms \
+  virtualbox-ext-pack \
   virtualbox-guest-additions-iso \
-  virtualbox-qt \
-  > vbox-vagrant-hosting.log 2>&1
+  virtualbox-qt
 
 echo "updating the apt-file index"
 sudo apt-file update > /dev/null
