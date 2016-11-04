@@ -1,6 +1,9 @@
 #! /bin/bash
 
-echo "Destroying existing box without confirmation"
+echo "Entering the Vagrant box execution directory"
+export HERE=`pwd`
+cd ../vagrant-box-execution
+echo "Destroying existing box without confirmation - you can ignore any errors"
 vagrant destroy --force
 echo "Removing existing Vagrantfile"
 rm -f Vagrantfile
@@ -9,8 +12,12 @@ echo "Creating a new Vagrantfile"
 # there are way too many open issues with bento, some of which other Hack Oregonians have
 # encountered.
 vagrant init ubuntu/xenial64
-echo "Saving the Vagrantfile to Vagrantfile.vanilla"
-cp Vagrantfile Vagrantfile.vanilla
-echo "Bringing up the base box"
-vagrant up --provider virtualbox
-vagrant global-status
+echo "Saving the Vagrantfile to Vagrantfile.base"
+cp Vagrantfile $HERE/Vagrantfile.base
+echo ""
+echo ""
+echo "To log into the Vagrant box, type"
+echo ""
+echo "cd ../vagrant-box-execution"
+echo "vagrant up"
+echo "vagrant ssh"
