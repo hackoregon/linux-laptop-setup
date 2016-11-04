@@ -4,7 +4,7 @@ echo "syncing package repo metadata"
 sudo apt-get update > /dev/null
 
 echo "upgrading any packages that need it"
-sudo apt-get upgrade -y > upgrade.log 2>&1
+sudo apt-get upgrade -y
 
 echo "installing the core packages"
 sudo apt-get install -qqy \
