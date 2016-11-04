@@ -10,6 +10,7 @@ echo "installing the core packages"
 sudo apt-get install -qqy \
   apt-file \
   build-essential \
+  debconf-utils \
   curl \
   dkms \
   gdebi-core \
