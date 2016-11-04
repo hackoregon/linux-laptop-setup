@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "bento/ubuntu-16.04"
+  config.vm.box = "ubuntu/xenial64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -65,10 +65,13 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    mkdir -p /home/vagrant/logfiles
-    mkdir -p /home/vagrant/Downloads
-    cd /home/vagrant
+
+    # see https://github.com/chef/bento/issues/665
+    # and http://serverfault.com/questions/500764/dpkg-reconfigure-unable-to-re-open-stdin-no-file-or-directory
+    export DEBIAN_FRONTEND=noninteractive
+    mkdir -p /home/ubuntu/Downloads
+    cd /home/ubuntu
     git clone https://github.com/hackoregon/linux-laptop-setup
-    chown -R vagrant:vagrant /home/vagrant
+    chown -R ubuntu:ubuntu /home/ubuntu
   SHELL
 end
