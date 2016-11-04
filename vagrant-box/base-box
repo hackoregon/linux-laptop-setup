@@ -1,0 +1,5 @@
+#! /bin/bash
+
+vagrant init bento/ubuntu-16.04
+cp Vagrantfile Vagrantfile.vanilla
+vagrant up --provider virtualbox
