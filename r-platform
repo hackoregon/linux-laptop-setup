@@ -48,14 +48,14 @@ sudo R CMD javareconf
 echo "Creating an R package library for $USER"
 R --no-save < `R RHOME`/etc/Rprofile.site
 
+echo "Installing R package development tools"
+R -e 'install.packages(c("devtools", "roxygen2"), quiet = TRUE)'
+
 echo "Installing the tidyverse"
 R -e 'install.packages(c("tidyverse", "XML"), quiet = TRUE)'
 
 echo "Installing Shiny"
 R -e 'install.packages("shiny", quiet = TRUE)'
-
-echo "Installing R package development tools"
-R -e 'install.packages(c("devtools", "roxygen2"), quiet = TRUE)'
 
 echo "Installing authoring tools"
 R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"), quiet = TRUE)'
