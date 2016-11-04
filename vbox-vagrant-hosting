@@ -5,7 +5,6 @@ sudo apt-get install -qqy \
   vagrant \
   virtualbox \
   virtualbox-dkms \
-  virtualbox-ext-pack \
   virtualbox-guest-additions-iso \
   virtualbox-qt
 
