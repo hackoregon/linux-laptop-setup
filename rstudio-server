@@ -20,8 +20,11 @@ rm -f rstudio*
 echo "Downloading the latest RStudio Server installer."
 wget -q https://download2.rstudio.org/rstudio-server-1.0.44-$TAG.deb
 echo "Download is finished."
-popd
-
 echo "Press 'Enter' when you're ready to install RStudio Server."
 read DUMMY
 sudo gdebi --non-interactive rstudio-server-1.0.44-$TAG.deb
+popd
+
+echo "RStudio Server is listening on port 8787"
+echo "For more information, see"
+echo "https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started"
