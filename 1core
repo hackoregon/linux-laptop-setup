@@ -4,7 +4,7 @@ echo "syncing package repo metadata"
 sudo apt-get update > /dev/null
 
 echo "upgrading any packages that need it"
-sudo apt-get upgrade -y >> upgrade.log 2>&1
+sudo apt-get upgrade -y > upgrade.log 2>&1
 
 echo "installing the core packages"
 sudo apt-get install -qqy \
@@ -16,7 +16,7 @@ sudo apt-get install -qqy \
   lynx \
   vim-nox \
   wget \
-  >> 1core.log 2>&1
+  > 1core.log 2>&1
 
 echo "updating the apt-file index"
 sudo apt-file update > /dev/null

@@ -29,7 +29,7 @@ sudo apt-get install -qqy \
   texlive-latex-recommended  \
   texlive-xetex  \
   xindy \
-  > /dev/null
+  > r-platform.log 2>&1
 
 # use US letter paper size
 sudo paperconfig -p letter

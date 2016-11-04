@@ -18,7 +18,7 @@ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-
 sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
 
 echo "Installing VirtualBox"
-sudo apt-get install -qqy virtualbox-5.1 > /dev/null
+sudo apt-get install -qqy virtualbox-5.1 > vbox-vagrant-hosting.log 2>&1
 
 # join the group
 sudo gpasswd -a ${USER} vboxusers

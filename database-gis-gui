@@ -10,6 +10,6 @@ echo "Installing database / GIS GUI packages"
 sudo apt-get install -qqy \
   pgadmin3 \
   qgis \
-  > /dev/null
+  > database-gis-gui.log 2>&1
 
 echo "http://qgis.org/debian repository added!"

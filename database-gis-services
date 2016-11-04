@@ -13,7 +13,7 @@ sudo apt-get install -qqy \
   postgresql-9.5-postgis-2.2 \
   postgresql-9.5-postgis-scripts \
   postgresql-plpython3-9.5 \
-  > /dev/null
+  > database-gis-services.log 2>&1
 
 # make yourself a PostgreSQL superuser
 sudo su -c "createuser -s ${USER}" postgres

@@ -1,0 +1,11 @@
+---
+title: "Vagrant Distribution"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Open a terminal in this directory.
+2. Type `./base-box`. This will build the Vagrantfile for the base box.

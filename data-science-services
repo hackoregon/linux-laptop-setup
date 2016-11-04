@@ -11,7 +11,7 @@ sudo apt-get install -qqy \
   texlive-latex-recommended \
   texlive-latex-extra \
   texlive-generic-recommended \
-  > /dev/null
+  > data-science-services.log 2>&1
 
 echo "Configuring paper size to letter"
 sudo paperconfig -p letter

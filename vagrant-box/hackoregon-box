@@ -5,9 +5,7 @@ vagrant destroy --force
 echo "Removing existing Vagrantfile"
 rm -f Vagrantfile
 echo "Creating a new Vagrantfile"
-vagrant init bento/ubuntu-16.04
-echo "Saving the Vagrantfile to Vagrantfile.vanilla"
-cp Vagrantfile Vagrantfile.vanilla
-echo "Bringing up the base box"
+cp Vagrantfile.hackoregon Vagrantfile
+echo "Bringing up the Hack Oregon box"
 vagrant up --provider virtualbox
 vagrant global-status
