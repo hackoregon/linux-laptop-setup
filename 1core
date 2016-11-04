@@ -21,4 +21,4 @@ sudo apt-get install -qqy \
   > 1core.log 2>&1
 
 echo "updating the apt-file index"
-sudo apt-file update > /dev/null
+sudo apt-file update > /dev/null 2>&1

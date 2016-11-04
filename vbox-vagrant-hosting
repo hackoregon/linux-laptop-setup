@@ -10,7 +10,7 @@ sudo apt-get install -qqy \
   virtualbox-qt
 
 echo "updating the apt-file index"
-sudo apt-file update > /dev/null
+sudo apt-file update > /dev/null 2>&1
 
 # join the group
 sudo gpasswd -a ${USER} vboxusers
