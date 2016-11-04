@@ -68,8 +68,7 @@ Vagrant.configure("2") do |config|
     mkdir -p /home/vagrant/logfiles
     mkdir -p /home/vagrant/Downloads
     cd /home/vagrant
-    wget -q -O - https://github.com/hackoregon/linux-laptop-setup/archive/v1.4.0.tar.gz \
-      | tar xzf -
+    git clone https://github.com/hackoregon/linux-laptop-setup
     chown -R vagrant:vagrant /home/vagrant
   SHELL
 end
