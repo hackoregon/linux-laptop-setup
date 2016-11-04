@@ -13,8 +13,6 @@ sudo apt-get install -qqy \
   dkms \
   gdebi \
   git \
-  lynx \
-  vim-nox \
   wget \
   > 1core.log 2>&1
 
