@@ -14,9 +14,7 @@ sudo apt-get install -qqy \
   curl \
   dkms \
   gdebi-core \
-  git \
   linux-headers-$(uname -r) \
-  vim-nox \
   wget \
   > 1core.log 2>&1
 

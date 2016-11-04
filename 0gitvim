@@ -1,0 +1,6 @@
+#! /bin/bash
+
+sudo apt-get install -qqy \
+  git \
+  vim-nox \
+  > 0gitvim.log 2>&1
