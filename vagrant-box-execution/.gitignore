@@ -1,3 +1,4 @@
+*.box
 Vagrantfile
 .vagrant
 *.log
