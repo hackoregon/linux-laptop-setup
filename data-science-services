@@ -34,7 +34,6 @@ echo ""
 # http://conda.pydata.org/miniconda.html
 echo "Making sure $HOME/Downloads exists."
 mkdir -p $HOME/Downloads
-
 pushd $HOME/Downloads
 echo "Removing any old Miniconda3 installers."
 rm -f Miniconda3*
@@ -46,31 +45,28 @@ popd
 echo "Ready to install Miniconda3. Notes:"
 echo ""
 echo "1. This is a batch install using all the defaults. License approval on your part is assumed."
-echo "2. The installer will not overwrite an existing Miniconda3 installation."
+echo "2. The installer will not overwrite an existing Miniconda3 installation. You can ignore"
+echo "   You can ignore the error it throws when it tries."
 echo ""
-echo "Press 'Enter' when you're ready to install Miniconda3."
-read DUMMY
 
 # go for it!
 bash $HOME/Downloads/Miniconda3-latest-Linux-$TAG.sh -b
 
 # make sure everything's there for the data science students
-echo ""
 echo "Updating the Miniconda distribution."
 ~/miniconda3/bin/conda update --yes --all
 
 echo "Creating a Conda environment named 'data-science' with 'jupyter', 'seaborn', "
 echo "'statsmodels' and 'scikit-learn'. This will not overwrite an existing 'data-science'."
+echo "You can ignore the error it throws when it tries."
 ~/miniconda3/bin/conda create --yes --name data-science jupyter seaborn statsmodels scikit-learn
 
-echo ""
 echo "Adding the data science activate and deactivate aliases to your '.bashrc' file."
 cat data-science-aliases >> $HOME/.bashrc
 
-echo ""
 echo "To use the data science services, open a terminal and type"
 echo ""
 echo "activate-data-science"
 echo "jupyter notebook"
 echo ""
-echo "A browser will open to your Jupyter notebook."
+echo "A browser will open to your Jupyter notebook server."
