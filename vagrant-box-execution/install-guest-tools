@@ -1,10 +1,10 @@
 #! /bin/bash
 
 echo "Synchonizing package cache - may take a long time!"
-sudo apt update
+sudo apt-get update
 
 echo "Installing build tools"
-sudo apt install -y build-essentials dkms kernel-headers-$(uname -r)
+sudo apt-get install -y build-essential dkms linux-headers-$(uname -r)
 
 echo "Start the VirtualBox GUI. You'll see this machine running."
 echo "Select this machine and press the green 'Show' arrow."
