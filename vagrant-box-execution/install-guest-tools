@@ -1,0 +1,19 @@
+#! /bin/bash
+
+echo "Synchonizing package cache - may take a long time!"
+sudo apt update
+
+echo "Installing build tools"
+sudo apt install -y build-essentials dkms kernel-headers-$(uname -r)
+
+echo "Start the VirtualBox GUI. You'll see this machine running."
+echo "Select this machine and press the green 'Show' arrow."
+echo "In the 'Devices' menu, select 'Insert Guest Additions CD Image'."
+read -p "Then press 'Enter' here."
+
+echo "Mounting guest additions ISO file"
+sudo mkdir -p /mnt/cdrom
+sudo mount /dev/sr0 /mnt/cdrom
+
+echo "Installing guest additions"
+sudo /mnt/cdrom/VBoxLinuxAdditions.run
