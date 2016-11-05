@@ -1,3 +1,9 @@
 #! /bin/bash
 
+# https://www.vagrantup.com/docs/virtualbox/boxes.html
 /usr/bin/time vagrant package --base hackoregon-base --output hackoregon-base.box
+# $ ./package-base 
+# ==> hackoregon-base: Exporting VM...
+# ==> hackoregon-base: Compressing package to: /home/znmeb/Projects/linux-laptop-setup/vagrant-box-execution/hackoregon-base.box
+# 63.93user 15.06system 25:04.76elapsed 5%CPU (0avgtext+0avgdata 36564maxresident)k
+# 64inputs+1388656outputs (0major+94997minor)pagefaults 0swaps

@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# https://www.vagrantup.com/docs/boxes/base.html
+/usr/bin/time vagrant box add hackoregon ~/Downloads/hackoregon-base.box
+#==> box: Box file was not detected as metadata. Adding it directly...
+#==> box: Adding box 'hackoregon-base' (v0) for provider: 
+#    box: Unpacking necessary files from: file:///home/znmeb/Projects/linux-laptop-setup/vagrant-box-execution/hackoregon-base.box
+#==> box: Successfully added box 'hackoregon-base' (v0) for 'virtualbox'!
+#8.62user 2.95system 3:07.22elapsed 6%CPU (0avgtext+0avgdata 40096maxresident)k
+#16inputs+2808552outputs (0major+20609minor)pagefaults 0swaps
+vagrant init hackoregon
