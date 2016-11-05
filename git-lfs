@@ -5,4 +5,4 @@ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.s
 sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
 
 echo "Installing Git LFS"
-sudo apt-get install -qqy git-lfs > git-lfs.log 2>&1
+sudo apt-get install -y git-lfs > git-lfs.log 2>&1

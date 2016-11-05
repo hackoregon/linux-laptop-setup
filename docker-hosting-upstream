@@ -9,7 +9,7 @@ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 \
 sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
 
 echo "Installing Docker packages"
-sudo apt-get install -qqy \
+sudo apt-get install -y \
   aufs-tools \
   cgroupfs-mount \
   docker-engine \

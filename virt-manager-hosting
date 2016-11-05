@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "Installing Virtual Machine Manager"
-sudo apt-get install -qqy \
+sudo apt-get install -y \
   virt-manager \
   qemu-kvm \
   qemu-utils \
