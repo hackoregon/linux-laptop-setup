@@ -1,13 +1,14 @@
 #! /bin/bash
 
 echo "Installing VirtualBox and Vagrant from Linux Mint repositories"
-sudo apt-get install \
+sudo apt-get install -y \
   vagrant \
   virtualbox \
   virtualbox-dkms \
   virtualbox-ext-pack \
   virtualbox-guest-additions-iso \
-  virtualbox-qt
+  virtualbox-qt \
+  > vbox-vagrant-hosting.log 2>&1
 
 # join the group
 sudo gpasswd -a ${USER} vboxusers

@@ -1,11 +1,11 @@
 #! /bin/bash
 
-# Upsteam PostgreSQL repo
 echo "Adding PostgreSQL / PostGIS package repository"
 sudo cp postgis.list /etc/apt/sources.list.d/
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc \
   | sudo apt-key add -
 sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
+
 echo "Installing database and GIS service packages"
 sudo apt-get install -y \
   postgresql-9.5 \

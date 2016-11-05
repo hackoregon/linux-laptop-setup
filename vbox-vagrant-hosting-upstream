@@ -18,8 +18,7 @@ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-
 sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
 
 echo "Installing VirtualBox"
-sudo apt-get install virtualbox-5.1 libsdl-ttf2.0-0 2>&1 | tee vbox-vagrant-hosting-upstream.log
-sudo apt-get autoremove 2>&1 | tee autoremove.log
+sudo apt-get install virtualbox-5.1 > vbox-vagrant-hosting-upstream.log 2>&1
 
 # join the group
 sudo gpasswd -a ${USER} vboxusers
