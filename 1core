@@ -15,3 +15,6 @@ sudo apt-get install -qqy \
 
 echo "updating the apt-file index"
 sudo apt-file update > /dev/null 2>&1
+
+echo "capturing the installer script"
+sudo debconf-get-selections --installer > ~/debconf-selections.txt
