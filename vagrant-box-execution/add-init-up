@@ -1,6 +1,9 @@
 #! /bin/bash
 
 # https://www.vagrantup.com/docs/boxes/base.html
+echo "Removing any existing 'hackoregon' box"
+vagrant box remove hackoregon
+echo "Adding the box package 'hackoregon-base.box' as machine 'hackoregon'"
 /usr/bin/time vagrant box add hackoregon ~/Downloads/hackoregon-base.box
 #==> box: Box file was not detected as metadata. Adding it directly...
 #==> box: Adding box 'hackoregon-base' (v0) for provider: 
@@ -8,4 +11,11 @@
 #==> box: Successfully added box 'hackoregon-base' (v0) for 'virtualbox'!
 #8.62user 2.95system 3:07.22elapsed 6%CPU (0avgtext+0avgdata 40096maxresident)k
 #16inputs+2808552outputs (0major+20609minor)pagefaults 0swaps
+echo "Removing any existing Vagrantfile"
+rm -f Vagrantfile
+echo "Creating a Vagrantfile"
 vagrant init hackoregon
+# keep on file
+cp Vagrantfile ../vagrant-box-creation/Vagrantfile.hackoregon
+echo "Bringing the box up"
+vagrant up --provision hackoregon
