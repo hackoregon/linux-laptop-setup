@@ -1,9 +1,11 @@
 #! /bin/bash
 
 echo "Installing VirtualBox and Vagrant from Linux Mint repositories"
-sudo apt-get install -qqy \
+sudo apt-get install \
   vagrant \
   virtualbox \
+  virtualbox-dkms \
+  virtualbox-ext-pack \
   virtualbox-guest-additions-iso \
   virtualbox-qt
 
