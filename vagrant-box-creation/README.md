@@ -17,8 +17,8 @@
     * Click on the SATA controller. Make sure "Use Host I/O Cache" is ***cleared***. I had mysterious installation failures with this option set!
 6. Now go to the 'Network' settings.
     * Select 'Advanced'. Then press the 'Port Forwarding' button.
-    * Create a rule with 'SSH' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 2222 as the host port and 22 as the guest port. Leave the guest IP blank.
-    * Create a rule with 'Jupyter' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 7777 as the host port and 8888 as the guest port. Leave the guest IP blank.
+    * Create a rule with 'SSH' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 2222 as the host port and 22 as the guest port. Leave the guest IP blank. This enables `ssh` into the guest.
+    * Create a rule with 'Jupyter' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 7777 as the host port and 8888 as the guest port. Leave the guest IP blank. This enables browsing to a Jupyter notebook server in the guest.
 6. Close the Settings wizard.
 7. Start the machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
 8. Accept all the defaults till you get to the host name screen.
@@ -39,9 +39,25 @@
 15. Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
 
 ## Installing the services
-You can use the virtual machine as it is with the "hack" account and password. You have to install the services you'll be using and forward the ports in the VMware GUI, but you have a working server at this point.
+1. Boot the machine up.
+2. Open a terminal and type `ssh hack@localhost -p2222`.
 
-1. Boot the machine up and log in as "hack", password "ORturkeyeggs".
+    The first time you do this, you'll see something like this:
+
+    ```
+    $ ssh hack@localhost -p2222
+    The authenticity of host '[localhost]:2222 ([127.0.0.1]:2222)' can't be established.
+    ECDSA key fingerprint is SHA256:DfFzzcB/WnSaFjpM/8r2miQgIRjWoRSlfFYsOE6psFc.
+    Are you sure you want to continue connecting (yes/no)?
+    ```
+
+    Enter 'yes'. you'll see
+    ```
+    Are you sure you want to continue connecting (yes/no)? yes
+    Warning: Permanently added '[localhost]:2222' (ECDSA) to the list of known hosts.
+    ```
+
+    Then you'll get prompted for a password. Enter the 'hack' password and you'll be logged in to the server.
 2. Type `git clone https://github.com/hackoregon/linux-laptop-setup`.
 3. Type `cd linux-laptop-setup`.
 4. Type `git checkout <working branch>`.
