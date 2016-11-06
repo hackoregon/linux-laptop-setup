@@ -41,3 +41,4 @@ If you want to, you can use the virtual machine as it is with the "hack" account
 4. Type `git checkout <working branch>`.
 5. Type `cd vagrant-box-creation`.
 6. Type `./vagrantize`.
+7. When 'vagrantize' is done, shut the machine down again with `sudo shutdown -h now`.
