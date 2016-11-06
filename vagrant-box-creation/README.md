@@ -15,6 +15,10 @@
 5. Now go to the 'Storage' settings.
     * Click on the empty CD drive and point it to the Ubuntu server ISO file you downloaded.
     * Click on the SATA controller. Make sure "Use Host I/O Cache" is ***cleared***. I had mysterious installation failures with this option set!
+6. Now go to the 'Network' settings.
+    * Select 'Advanced'. Then press the 'Port Forwarding' button.
+    * Create a rule with 'SSH' in the name, 2222 in the host port and 22 in the guest port. Leave the other fields in the rule blank.
+    * Create a rule with 'Jupyter' in the name, 8888 in the host port and 8888 in the guest port. Leave the other fields in the rule blank.
 6. Close the Settings wizard.
 7. Start the machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
 8. Accept all the defaults till you get to the host name screen.
@@ -29,8 +33,10 @@
     * When it asks to write the changes to disk, say 'Yes'.
 10. The installer will start again. Accept the defaults until you come to 'Software selection'. Select ***both*** 'standard system utilities' and 'OpenSSH server'.
 11. The installer will start again. Accept the defaults until the install is complete. Then select "Continue" to reboot the system.
-12. When the system comes up, log in as 'hack' and type `sudo shutdown -h now`. You'll need to enter the password.
-13. Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
+12. When the system comes up, log in as 'hack'.
+13. Type `ssh-keygen` to generate secure shell keys. Answer all the prompts with `Enter`.
+14. Type `sudo shutdown -h now` to power off the virtual machine. You'll need to enter the password.
+15. Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
 
 ## Installing the services
 You can use the virtual machine as it is with the "hack" account and password. You have to install the services you'll be using and forward the ports in the VMware GUI, but you have a working server at this point.
@@ -39,9 +45,12 @@ You can use the virtual machine as it is with the "hack" account and password. Y
 2. Type `git clone https://github.com/hackoregon/linux-laptop-setup`.
 3. Type `cd linux-laptop-setup`.
 4. Type `git checkout <working branch>`.
-5. Type `./database-gis-services-upstream`. This installs PostgreSQL and PostGIS for all users on the machine. It will add 'hack' as a database super-user.
-6. Type `./data-science-services`. This will install Miniconda and the data science environment for the 'hack' user.
-7. Shut down the system with `sudo shutdown -h now`.
+5. Type `./1core`. This will install the core packages for all users.
+6. Type `./database-gis-services-upstream`. This installs PostgreSQL and PostGIS for all users on the machine. It will add 'hack' as a database super-user.
+7. Type `./data-science-services`. This will install Miniconda and the data science environment for the 'hack' user.
+8. Type `ssh-keygen` to generate keys for secure shell. Answer all the prompts with `Enter`.
+9. Shut down the system with `sudo shutdown -h now`.
+10. In the machine's network settings, set port forwarding: port 22 -> 2222 and port 8888 -> 8888.
 
 ## Preparing the virtual machine as a Vagrant box
 5. Type `cd vagrant-box-creation`.
