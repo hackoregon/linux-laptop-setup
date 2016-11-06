@@ -17,4 +17,5 @@ echo "updating the apt-file index"
 sudo apt-file update > /dev/null 2>&1
 
 echo "capturing the installer script"
+# seems to be empty on Linux Mint Sarah
 sudo debconf-get-selections --installer > ~/debconf-selections.txt
