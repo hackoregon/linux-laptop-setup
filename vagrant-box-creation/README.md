@@ -1,5 +1,6 @@
 # Making a Ubuntu server for Hack Oregon in VirtualBox
 
+## Creating a virtual machine
 1. You will need to be connected to the internet. Install VirtualBox if you haven't already.
 2. Download the Ubuntu 16.04.1 LTS server ISO file from http://releases.ubuntu.com/16.04.1/ubuntu-16.04.1-server-amd64.iso
 3. Open VirtualBox. Create a virtual machine.
@@ -13,7 +14,7 @@
 7. Under 'USB', uncheck 'Enable USB Controller'.
 8. Now go to the 'Storage' settings.
     * Click on the empty CD drive and point it to the Ubuntu server ISO file you downloaded.
-    * Click on the SATA controller. Make sure "Use Host I/O Cache" is cleared. I had mysterious installation failures with this option set!
+    * Click on the SATA controller. Make sure "Use Host I/O Cache" is ***cleared***. I had mysterious installation failures with this option set!
 9. Close the Settings wizard.
 10. Start the machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
 11. Accept all the defaults till you get to the host name screen. Call the machine 'hackoregon-base'.
@@ -22,7 +23,17 @@
 14. Set the password to 'ORturkeyeggs'.
 15. Do not encrypt your home directory.
 16. Accept the default time zone.
-16. Now comes the tricky part - partitioning. 
-    * Select 'Guided - use entire disk'.
-17. The installer will start again. Accept the defaults until you come to 'Software Selection'. Select both 'standard system utilities' and 'OpenSSH server'.
+16. When you come to the "Partition disks" step, select 'Guided - use entire disk'.
+    * There's only one disk to select, so select it.
+    * When it asks to write the changes to disk, say 'Yes'.
+17. The installer will start again. Accept the defaults until you come to 'Software Selection'. Select ***both*** 'standard system utilities' and 'OpenSSH server'.
 18. The installer will start again. Accept the defaults until the install is complete. Then select "Continue" to reboot the system.
+
+## Preparing the virtual machine as a Vagrant box
+If you want to, you can use the virtual machine as it is with the "hack" account and password. You'd have to install the services you'll be using and forward the ports in the VMware GUI, but you have a working server at this point. To package the machine as a Vagrant box:
+
+1. Boot the machine up and log in as "hack", password "ORturkeyeggs".
+2. Type `git clone https://github.com/hackoregon/linux-laptop-setup`.
+3. Type `git checkout <working branch>`.
+4. Type `cd linux-laptop-setup/vagrant-box-creation`.
+5. Type `./vagrantize`.
