@@ -32,13 +32,18 @@
 12. When the system comes up, log in as 'hack' and type `sudo shutdown -h now`. You'll need to enter the password.
 13. Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
 
-## Preparing the virtual machine as a Vagrant box
-If you want to, you can use the virtual machine as it is with the "hack" account and password. You'd have to install the services you'll be using and forward the ports in the VMware GUI, but you have a working server at this point. To package the machine as a Vagrant box:
+## Installing the services
+You can use the virtual machine as it is with the "hack" account and password. You have to install the services you'll be using and forward the ports in the VMware GUI, but you have a working server at this point.
 
 1. Boot the machine up and log in as "hack", password "ORturkeyeggs".
 2. Type `git clone https://github.com/hackoregon/linux-laptop-setup`.
 3. Type `cd linux-laptop-setup`.
 4. Type `git checkout <working branch>`.
+5. Type `./database-gis-services-upstream`. This installs PostgreSQL and PostGIS for all users on the machine. It will add 'hack' as a database super-user.
+6. Type `./data-science-services`. This will install Miniconda and the data science environment for the 'hack' user.
+7. Shut down the system with `sudo shutdown -h now`.
+
+## Preparing the virtual machine as a Vagrant box
 5. Type `cd vagrant-box-creation`.
 6. Type `./vagrantize`.
 7. When 'vagrantize' is done, shut the machine down again with `sudo shutdown -h now`. Take another snapshot so you can get back to this state.
