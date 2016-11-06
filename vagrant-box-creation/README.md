@@ -64,9 +64,34 @@
 5. Type `./1core`. This will install the core packages for all users.
 6. Type `./database-gis-services-upstream`. This installs PostgreSQL and PostGIS for all users on the machine. It will add 'hack' as a database super-user.
 7. Type `./data-science-services`. This will install Miniconda and the data science environment for the 'hack' user.
-8. Type `ssh-keygen` to generate keys for secure shell. Answer all the prompts with `Enter`.
-9. Shut down the system with `sudo shutdown -h now`.
-10. In the machine's network settings, set port forwarding: port 22 -> 2222 and port 8888 -> 8888.
+8. Test the Jupyter notebook server.
+    * Type
+        ```
+        source ~/.bashrc
+        activate-data-science
+        jupyter notebook --ip 0.0.0.0 --no-browser
+        ```
+
+        You will see
+        ```
+        hack@hackoregon-base:~/linux-laptop-setup$ source ~/.bashrc 
+        hack@hackoregon-base:~/linux-laptop-setup$ activate-data-science 
+        (data-science) hack@hackoregon-base:~/linux-laptop-setup$ jupyter notebook --ip 0.0.0.0 --no-browser
+        [I 14:16:51.469 NotebookApp] [nb_conda_kernels] enabled, 2 kernels found
+        [I 14:16:51.576 NotebookApp] [nb_anacondacloud] enabled
+        [I 14:16:51.580 NotebookApp] [nb_conda] enabled
+        [I 14:16:51.632 NotebookApp] ✓ nbpresent HTML export ENABLED
+        [W 14:16:51.633 NotebookApp] ✗ nbpresent PDF export DISABLED: No module named 'nbbrowserpdf'
+        [I 14:16:51.638 NotebookApp] Serving notebooks from local directory: /home/hack/linux-laptop-setup
+        [I 14:16:51.638 NotebookApp] 0 active kernels 
+        [I 14:16:51.639 NotebookApp] The Jupyter Notebook is running at: http://0.0.0.0:8888/
+        [I 14:16:51.639 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+        ```
+    * On the host, browse to <http://localhost:7777>. You will be connected to the notebook server in the guest.
+    * Verify that the notebook server is running.
+    * Close the browser window / tab.
+    * In the terminal, type `CONTROL-C` twice to shut down the notebook server. Then type `deactivate-data-science` to deactivate the `data-science` environment.
+9. Shut down the system with `sudo shutdown -h now`. Take another snapshot.
 
 ## Preparing the virtual machine as a Vagrant box
 5. Type `cd vagrant-box-creation`.
