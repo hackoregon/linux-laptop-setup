@@ -7,20 +7,20 @@
     * Call it "Hack Oregon Base".
     * Set the operating system to Ubuntu 64.
     * Set the memory to 1024 MiB.
-    * Create a 32 GB dynamically allocated ***VMDK*** disk. If you use the default VirtualBox VDI disk the Vagrant packaging step will have to spend energy converting it to VMDK.
+    * Create a 32 GB dynamically allocated disk.
 4. Open the 'Settings' wizard.
     * Under 'System', change the pointing device to 'PS/2 mouse'.
     * Under 'Audio', uncheck 'Enable Audio'.
     * Under 'USB', uncheck 'Enable USB Controller'.
-5. Now go to the 'Storage' settings.
+5. Go to the 'Storage' settings.
     * Click on the empty CD drive and point it to the Ubuntu server ISO file you downloaded.
     * Click on the SATA controller. Make sure "Use Host I/O Cache" is ***cleared***. I had mysterious installation failures with this option set!
-6. Now go to the 'Network' settings.
+6. Go to the 'Network' settings.
     * Select 'Advanced'. Then press the 'Port Forwarding' button.
     * Create a rule with 'SSH' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 2222 as the host port and 22 as the guest port. Leave the guest IP blank. This enables `ssh` into the guest.
     * Create a rule with 'Jupyter' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 7777 as the host port and 8888 as the guest port. Leave the guest IP blank. This enables browsing to a Jupyter notebook server in the guest.
 6. Close the Settings wizard.
-7. Start the machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
+7. Start the virtual machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
 8. Accept all the defaults till you get to the host name screen.
     * Call the machine 'hackoregon-base'.
     * Set the user full name to 'Hack Oregon'.
@@ -32,18 +32,12 @@
     * There's only one disk to select, so select it.
     * When it asks to write the changes to disk, say 'Yes'.
 10. The installer will start again. Accept the defaults until you come to 'Software selection'. Select ***both*** 'standard system utilities' and 'OpenSSH server'.
-11. The installer will start again. Accept the defaults until the install is complete. Then select "Continue" to reboot the system.
-12. When the system comes up, log in as 'hack'.
-13. Type `ssh-keygen` to generate secure shell keys. Answer all the prompts with `Enter`.
-14. Type `sudo shutdown -h now` to power off the virtual machine. You'll need to enter the password.
-15. Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
-
-## Installing the services
-1. Boot the machine up.
-2. Open a terminal and type `ssh hack@localhost -p2222`.
+11. The installer will start again. Accept the defaults until the install is complete. Then select "Continue" to reboot the virtual machine.
+12. When the virtual machine comes up, log in on the console as 'hack'.
+13. Type `ssh-keygen` to generate secure shell keys. Answer all the prompts with `Enter`. Secure shell login is now enabled.
+14. Verify that secure shell login works. Open a host terminal and type `ssh hack@localhost -p2222`.
 
     The first time you do this, you'll see something like this:
-
     ```
     $ ssh hack@localhost -p2222
     The authenticity of host '[localhost]:2222 ([127.0.0.1]:2222)' can't be established.
@@ -58,6 +52,13 @@
     ```
 
     Then you'll get prompted for a password. Enter the 'hack' password and you'll be logged in to the server.
+14. Type `sudo shutdown -h now` to power off the virtual machine. You'll need to enter the password.
+15. Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
+
+## Installing the services
+1. Boot the machine up.
+2. Open a terminal and type `ssh hack@localhost -p2222`.
+
 2. Type `git clone https://github.com/hackoregon/linux-laptop-setup`.
 3. Type `cd linux-laptop-setup`.
 4. Type `git checkout <working branch>`.
@@ -91,7 +92,7 @@
     * Verify that the notebook server is running.
     * Close the browser window / tab.
     * In the terminal, type `CONTROL-C` twice to shut down the notebook server. Then type `deactivate-data-science` to deactivate the `data-science` environment.
-9. Shut down the system with `sudo shutdown -h now`. Take another snapshot.
+9. Shut down the virtual machine with `sudo shutdown -h now`. Take another snapshot.
 
 ## Preparing the virtual machine as a Vagrant box
 5. Type `cd vagrant-box-creation`.
