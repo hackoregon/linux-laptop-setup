@@ -41,4 +41,17 @@ If you want to, you can use the virtual machine as it is with the "hack" account
 4. Type `git checkout <working branch>`.
 5. Type `cd vagrant-box-creation`.
 6. Type `./vagrantize`.
-7. When 'vagrantize' is done, shut the machine down again with `sudo shutdown -h now`.
+7. When 'vagrantize' is done, shut the machine down again with `sudo shutdown -h now`. Take another snapshot so you can get back to this state.
+
+## Packaging the Vagrant box
+This is a single-step operation, but it takes a long time. On my machine it's about 30 minutes!. Open a terminal on a Linux host in `linux-laptop-setup/vagrant-box-creation`, type `./package` and wait.
+
+The final Vagrant box file will be moved to `~/Downloads`. It's about 705 megabytes as of this writing.
+
+## Testing the box
+1. `cd linux-laptop-setup/vagrant-box-execution`
+2. `./add-init-up`. This will
+    * Remove any existing 'hackoregon' box.
+    * Add the new one from `~/Downloads`.
+    * Remove any existing Vagrantfile.
+    * Do a 'vagrant init' and a 'vagrant up --provision'.
