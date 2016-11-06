@@ -18,7 +18,7 @@ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-
 sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
 
 echo "Installing VirtualBox"
-sudo apt-get install virtualbox-5.1 > vbox-vagrant-hosting-upstream.log 2>&1
+sudo apt-get install virtualbox-5.1 -y > vbox-vagrant-hosting-upstream.log 2>&1
 
 # join the group
 sudo gpasswd -a ${USER} vboxusers
@@ -38,7 +38,6 @@ echo "   If you do, enter your password and press 'OK'."
 echo "6. When the install finishes, press the 'Close' button."
 echo "   Then close the installer window and the browser."
 echo ""
-echo "Press 'Enter' when the install has finished."
-read DUMMY
+read -p "Press 'Enter' when the install has finished."
 echo "http://download.virtualbox.org/virtualbox/debian repository added!"
 echo "Log out and back in to join the 'vboxusers' group!"
