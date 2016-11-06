@@ -15,7 +15,7 @@ sudo chown vagrant:vagrant /vagrant
 echo "Create your secure shell keys."
 ssh-keygen
 echo "Install the Vagrant insecure keys"
-pushd .ssh
+pushd ~/.ssh
 wget -q -O - https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant
 wget -q -O - https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub
 cp vagrant.pub authorized_keys
