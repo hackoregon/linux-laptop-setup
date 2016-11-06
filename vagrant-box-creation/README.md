@@ -37,6 +37,7 @@ If you want to, you can use the virtual machine as it is with the "hack" account
 
 1. Boot the machine up and log in as "hack", password "ORturkeyeggs".
 2. Type `git clone https://github.com/hackoregon/linux-laptop-setup`.
-3. Type `git checkout <working branch>`.
-4. Type `cd linux-laptop-setup/vagrant-box-creation`.
-5. Type `./vagrantize`.
+3. Type `cd linux-laptop-setup`.
+4. Type `git checkout <working branch>`.
+5. Type `cd vagrant-box-creation`.
+6. Type `./vagrantize`.
