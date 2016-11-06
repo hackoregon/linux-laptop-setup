@@ -25,7 +25,7 @@ chmod 0644 vagrant.pub
 popd
 echo "Add the line 'UseDNS no' to the bottom of the file '/etc/ssh/sshd_config'."
 sleep 10
-sudo vim /etc/ssh/sshd_config
+sudo nano /etc/ssh/sshd_config
 echo "Add the line 'vagrant ALL=(ALL:ALL) NOPASSWD: ALL' to the bottom of the file with 'visudo'."
 sleep 10
 sudo visudo

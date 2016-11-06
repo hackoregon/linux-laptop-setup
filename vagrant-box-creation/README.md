@@ -9,25 +9,28 @@
     * Set the memory to 1024 MiB.
     * Create a 32 GB dynamically allocated ***VMDK*** disk. If you use the default VirtualBox VDI disk the Vagrant packaging step will have to spend energy converting it to VMDK.
 4. Open the 'Settings' wizard.
-5. Under 'System', change the pointing device to 'PS/2 mouse'.
-6. Under 'Audio', uncheck 'Enable Audio'.
-7. Under 'USB', uncheck 'Enable USB Controller'.
-8. Now go to the 'Storage' settings.
+    * Under 'System', change the pointing device to 'PS/2 mouse'.
+    * Under 'Audio', uncheck 'Enable Audio'.
+    * Under 'USB', uncheck 'Enable USB Controller'.
+5. Now go to the 'Storage' settings.
     * Click on the empty CD drive and point it to the Ubuntu server ISO file you downloaded.
     * Click on the SATA controller. Make sure "Use Host I/O Cache" is ***cleared***. I had mysterious installation failures with this option set!
-9. Close the Settings wizard.
-10. Start the machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
-11. Accept all the defaults till you get to the host name screen. Call the machine 'hackoregon-base'.
-12. Set the user full name to 'Hack Oregon'.
-13. Set the username to 'hack'.
-14. Set the password to 'ORturkeyeggs'.
-15. Do not encrypt your home directory.
-16. Accept the default time zone.
-16. When you come to the "Partition disks" step, select 'Guided - use entire disk'.
+6. Close the Settings wizard.
+7. Start the machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
+8. Accept all the defaults till you get to the host name screen.
+    * Call the machine 'hackoregon-base'.
+    * Set the user full name to 'Hack Oregon'.
+    * Set the username to 'hack'.
+    * Set the password to 'ORturkeyeggs'.
+    * Do not encrypt your home directory.
+    * Accept the default time zone.
+9. When you come to the "Partition disks" step, select 'Guided - use entire disk'.
     * There's only one disk to select, so select it.
     * When it asks to write the changes to disk, say 'Yes'.
-17. The installer will start again. Accept the defaults until you come to 'Software Selection'. Select ***both*** 'standard system utilities' and 'OpenSSH server'.
-18. The installer will start again. Accept the defaults until the install is complete. Then select "Continue" to reboot the system.
+10. The installer will start again. Accept the defaults until you come to 'Software selection'. Select ***both*** 'standard system utilities' and 'OpenSSH server'.
+11. The installer will start again. Accept the defaults until the install is complete. Then select "Continue" to reboot the system.
+12. When the system comes up, log in as 'hack' and type `sudo shutdown -h now`. You'll need to enter the password.
+13. Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
 
 ## Preparing the virtual machine as a Vagrant box
 If you want to, you can use the virtual machine as it is with the "hack" account and password. You'd have to install the services you'll be using and forward the ports in the VMware GUI, but you have a working server at this point. To package the machine as a Vagrant box:
