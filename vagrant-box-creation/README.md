@@ -17,8 +17,8 @@
     * Click on the SATA controller. Make sure "Use Host I/O Cache" is ***cleared***. I had mysterious installation failures with this option set!
 6. Now go to the 'Network' settings.
     * Select 'Advanced'. Then press the 'Port Forwarding' button.
-    * Create a rule with 'SSH' in the name, 2222 in the host port and 22 in the guest port. Leave the other fields in the rule blank.
-    * Create a rule with 'Jupyter' in the name, 8888 in the host port and 8888 in the guest port. Leave the other fields in the rule blank.
+    * Create a rule with 'SSH' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 2222 as the host port and 22 as the guest port. Leave the guest IP blank.
+    * Create a rule with 'Jupyter' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 7777 as the host port and 8888 as the guest port. Leave the guest IP blank.
 6. Close the Settings wizard.
 7. Start the machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
 8. Accept all the defaults till you get to the host name screen.
