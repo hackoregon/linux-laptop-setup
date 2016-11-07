@@ -13,8 +13,7 @@ sudo apt-get install -y \
   aufs-tools \
   cgroupfs-mount \
   docker-engine \
-  linux-image-extra-$(uname -r) \
-  > docker-hosting-upstream.log 2>&1
+  linux-image-extra-$(uname -r)
 
 sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
 echo "https://apt.dockerproject.org/repo repository added!"

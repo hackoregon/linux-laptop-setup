@@ -10,8 +10,7 @@ sudo apt-get install -y \
   docker-doc \
   rinse \
   ubuntu-fan \
-  zfs-fuse \
-  > docker-hosting.log 2>&1
+  zfs-fuse
 
 sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
 echo "Log out and back in to join the 'docker' group!"

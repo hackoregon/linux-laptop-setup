@@ -10,8 +10,7 @@ sudo apt-get install -y \
   gdebi-core \
   linux-headers-$(uname -r) \
   sysstat \
-  wget \
-  > 1core.log 2>&1
+  wget
 
 echo "updating the apt-file index"
 sudo apt-file update > /dev/null 2>&1

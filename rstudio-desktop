@@ -22,5 +22,4 @@ echo "   If you do, enter your password and press 'OK'."
 echo "5. When the install finishes, press the 'Close' button."
 echo "   Then close the installer window and the browser."
 echo ""
-echo "Press 'Enter' when the install has finished."
-read DUMMY
+read -p "Press 'Enter' here when the install has finished."

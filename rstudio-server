@@ -20,8 +20,6 @@ rm -f rstudio*
 echo "Downloading the latest RStudio Server installer."
 wget -q https://download2.rstudio.org/rstudio-server-1.0.44-$TAG.deb
 echo "Download is finished."
-echo "Press 'Enter' when you're ready to install RStudio Server."
-read DUMMY
 sudo gdebi --non-interactive rstudio-server-1.0.44-$TAG.deb
 popd
 

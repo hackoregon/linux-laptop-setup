@@ -7,8 +7,7 @@ sudo apt-get install -y \
   virtualbox-dkms \
   virtualbox-ext-pack \
   virtualbox-guest-additions-iso \
-  virtualbox-qt \
-  > vbox-vagrant-hosting.log 2>&1
+  virtualbox-qt
 
 # join the group
 sudo gpasswd -a ${USER} vboxusers

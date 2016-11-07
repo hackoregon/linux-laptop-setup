@@ -4,5 +4,4 @@
 # But Linux Mint Sarah doesn't. So here they are.
 sudo apt-get install -y \
   git \
-  vim-nox \
-  > 0gitvim.log 2>&1
+  vim-nox
