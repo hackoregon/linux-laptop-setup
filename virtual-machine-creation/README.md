@@ -66,15 +66,20 @@
 14. Type `sudo shutdown -h now` to power off the virtual machine. You'll be logged out of the secure shell session and the virtual machine will shut down.
 15. You now have a Ubuntu 16.04.1 LTS server virtual machine! Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
 
-## Installing the services
-1. Boot the machine up.
+## Installing the Hack Oregon services
+1. Start the virtual machine.
 2. Open a terminal and type `ssh hack@localhost -p2222`.
 
 2. Type `git clone https://github.com/hackoregon/linux-laptop-setup`.
 3. Type `cd linux-laptop-setup`.
 4. Type `git checkout <working branch>`.
+5. Type `./0update`. This will update all the packages to the latest versions.
+5. Reboot the virtual machine with `sudo reboot`.
+5. When the virtual machine is back up, log back in again with `ssh`.
+6. Type `cd linux-laptop-setup`.
+6. Type `./0update-upgrade`. This will upgrade all packages to the latest versions and will take some time.
 5. Type `./1core`. This will install the core packages for all users.
-6. Type `./database-gis-services-upstream`. This installs PostgreSQL and PostGIS for all users on the machine. It will add 'hack' as a database super-user.
+6. Type `./database-gis-services-upstream`. This installs PostgreSQL and PostGIS for all users on the virtual machine. It will add 'hack' as a database super-user.
 7. Type `./data-science-services`. This will install Miniconda and the data science environment for the 'hack' user.
 8. Test the Jupyter notebook server.
     * Type
@@ -105,20 +110,4 @@
     * In the terminal, type `CONTROL-C` twice to shut down the notebook server. Then type `deactivate-data-science` to deactivate the `data-science` environment.
 9. Shut down the virtual machine with `sudo shutdown -h now`. Take another snapshot.
 
-## Preparing the virtual machine as a Vagrant box
-5. Type `cd vagrant-box-creation`.
-6. Type `./vagrantize`.
-7. When 'vagrantize' is done, shut the machine down again with `sudo shutdown -h now`. Take another snapshot so you can get back to this state.
-
-## Packaging the Vagrant box
-This is a single-step operation, but it takes a long time. On my machine it's about 30 minutes!. Open a terminal on a Linux host in `linux-laptop-setup/vagrant-box-creation`, type `./package` and wait.
-
-The final Vagrant box file will be moved to `~/Downloads`. It's about 705 megabytes as of this writing.
-
-## Testing the box
-1. `cd linux-laptop-setup/vagrant-box-execution`
-2. `./add-init-up`. This will
-    * Remove any existing 'hackoregon' box.
-    * Add the new one from `~/Downloads`.
-    * Remove any existing Vagrantfile.
-    * Do a 'vagrant init' and a 'vagrant up --provision'.
+## Exporting the virtual machine
