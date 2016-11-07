@@ -5,7 +5,6 @@ sudo apt-get install -y \
   apt-file \
   build-essential \
   cpu-checker \
-  debconf-utils \
   curl \
   dkms \
   gdebi-core \
@@ -16,7 +15,3 @@ sudo apt-get install -y \
 
 echo "updating the apt-file index"
 sudo apt-file update > /dev/null 2>&1
-
-echo "capturing the installer script"
-# seems to be empty on Linux Mint Sarah
-sudo debconf-get-selections --installer > ~/debconf-selections.txt
