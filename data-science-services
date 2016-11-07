@@ -1,22 +1,5 @@
 #! /bin/bash
 
-# LaTeX packages for PDF notebook downloads
-# File an issue at https://github.com/hackoregon/linux-laptop-setup/issues/new if you need others
-echo "Installing LaTeX packages for notebook PDF downloads"
-echo "This will take some time"
-sudo apt-get install -y \
-  pandoc \
-  pandoc-citeproc \
-  texlive-latex-base \
-  texlive-fonts-recommended \
-  texlive-latex-recommended \
-  texlive-latex-extra \
-  texlive-generic-recommended
-
-echo "Configuring paper size to letter"
-sudo paperconfig -p letter
-sudo tl-paper set all letter
-
 # what machine have we got?
 if [ `arch` == "x86_64" ]
 then
@@ -43,8 +26,9 @@ popd
 
 echo "Ready to install Miniconda3. Notes:"
 echo ""
-echo "1. This is a batch install using all the defaults. License approval on your part is assumed."
-echo "2. The installer will not overwrite an existing Miniconda3 installation. You can ignore"
+echo "1. This is a batch install using all the defaults. License approval on"
+echo "   your part is assumed."
+echo "2. The installer will not overwrite an existing Miniconda3 installation."
 echo "   You can ignore the error it throws when it tries."
 echo ""
 
@@ -55,23 +39,53 @@ bash $HOME/Downloads/Miniconda3-latest-Linux-$TAG.sh -b
 echo "Updating the Miniconda distribution."
 ~/miniconda3/bin/conda update --yes --all
 
-echo "Creating a Conda environment named 'data-science' with 'jupyter', 'seaborn', "
-echo "'statsmodels' and 'scikit-learn'. This will not overwrite an existing 'data-science'."
-echo "You can ignore the error it throws when it tries."
+echo ""
+echo ""
+echo "Creating a Conda environment named 'data-science' with 'jupyter',"
+echo "'seaborn', 'statsmodels' and 'scikit-learn'. This will not overwrite an"
+echo "existing 'data-science'. You can ignore the error it throws when it tries."
 ~/miniconda3/bin/conda create --yes --name data-science jupyter seaborn statsmodels scikit-learn
 
+echo ""
+echo ""
+echo "If you want to be able to do PDF downloads of your notebooks, you will"
+echo "need to install some LaTeX packages from Linux. The install will take"
+echo "some time, especially on slow networks, and will take up quite a bit of"
+echo "space on your disk."
+echo ""
+echo "If you want these packages, say 'Y' below. Note that 'Y' is the default!"
+echo "If you do *not* want these packages, say 'n'!"
+echo ""
+echo ""
+
+# LaTeX packages for PDF notebook downloads
+# File an issue at https://github.com/hackoregon/linux-laptop-setup/issues/new if you need others
+sudo apt-get install \
+  pandoc \
+  pandoc-citeproc \
+  texlive-latex-base \
+  texlive-fonts-recommended \
+  texlive-latex-recommended \
+  texlive-latex-extra \
+  texlive-generic-recommended
+echo ""
+echo ""
 echo "Adding the data science activate and deactivate aliases to your '.bashrc' file."
 cat data-science-aliases >> $HOME/.bashrc
 echo "Log out and back in again to define the aliases."
-
+echo ""
 echo "To use the data science services, open a terminal and type"
 echo ""
-echo "activate-data-science"
-echo "jupyter notebook"
+echo "    activate-data-science"
+echo "    jupyter notebook"
 echo ""
-echo "A browser will open to your Jupyter notebook server."
+echo "A browser will open to your Jupyter notebook server. Type"
+echo ""
+echo "    deactivate-data-science"
+echo ""
+echo "after shutting down the notebook server."
 echo ""
 echo "To start a notebook server on the local area network, type"
 echo ""
-echo "activate-data-science"
-echo "jupyter notebook --ip 0.0.0.0 --no-browser"
+echo "    activate-data-science"
+echo "    jupyter notebook --ip 0.0.0.0 --no-browser"
