@@ -1,4 +1,4 @@
-# Making a Ubuntu server for Hack Oregon in VirtualBox
+# Making an Ubuntu Server Virtual Machine for Hack Oregon in VirtualBox
 
 ## Creating a virtual machine
 1. You will need to be connected to the internet. Install VirtualBox if you haven't already.
