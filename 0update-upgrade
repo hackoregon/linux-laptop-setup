@@ -8,3 +8,5 @@ sudo apt-get update
 
 echo "upgrading any packages that need it - this may take some time"
 sudo apt-get upgrade -y
+
+echo "reboot now!"
