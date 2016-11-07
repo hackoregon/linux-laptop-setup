@@ -73,11 +73,10 @@
 2. Type `git clone https://github.com/hackoregon/linux-laptop-setup`.
 3. Type `cd linux-laptop-setup`.
 4. Type `git checkout <working branch>`.
-5. Type `./0update`. This will update all the packages to the latest versions.
+6. Type `./0update-upgrade`. This will upgrade all packages to the latest versions and will take some time.
 5. Reboot the virtual machine with `sudo reboot`.
 5. When the virtual machine is back up, log back in again with `ssh`.
 6. Type `cd linux-laptop-setup`.
-6. Type `./0update-upgrade`. This will upgrade all packages to the latest versions and will take some time.
 5. Type `./1core`. This will install the core packages for all users.
 6. Type `./database-gis-services-upstream`. This installs PostgreSQL and PostGIS for all users on the virtual machine. It will add 'hack' as a database super-user.
 7. Type `./data-science-services`. This will install Miniconda and the data science environment for the 'hack' user.
