@@ -30,7 +30,7 @@
     * Set the password to 'ORturkeyeggs'.
     * Do not encrypt your home directory.
     * Accept the default time zone.
-9. When you come to the "Partition disks" step, select 'Guided - use entire disk'.
+9. When you come to the 'Partition disks' step, select 'Guided - use entire disk'.
     * There's only one disk to select, so select it.
     * When it asks to write the changes to disk, say 'Yes'.
 10. The installer will start again. Accept the defaults until you come to 'Software selection'. Select ***both*** 'standard system utilities' and 'OpenSSH server'.
