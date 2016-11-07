@@ -34,7 +34,7 @@
     * There's only one disk to select, so select it.
     * When it asks to write the changes to disk, say 'Yes'.
 10. The installer will start again. Accept the defaults until you come to 'Software selection'. Select ***both*** 'standard system utilities' and 'OpenSSH server'.
-11. The installer will start again. Accept the defaults until the install is complete. Then select "Continue" to reboot the virtual machine.
+11. The installer will start again. Accept the defaults until the install is complete. Then select 'Continue' to reboot the virtual machine.
 12. When the virtual machine comes up, log in on the console as 'hack'.
 13. Type `ssh-keygen` to generate secure shell keys. Answer all the prompts with `Enter`. Secure shell login is now enabled.
 14. Verify that secure shell login works. Open a host terminal and type `ssh hack@localhost -p2222`.
