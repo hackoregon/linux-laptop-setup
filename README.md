@@ -23,8 +23,6 @@ I've designed these scripts on Linux Mint 18 "Sarah" with the Cinnamon desktop (
 
 Except for virtual machine hosting, they should work on any of the Linux Mint "Sarah" desktops and any Ubuntu 16.04.1 LTS "Xenial Xerus" desktop, 32 or 64 bits. File an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new> if you find problems on an Ubuntu 16.04.1 or Linux Mint 18 system.
 
-If you have some other version of Linux already installed, open an issue at <https://github.com/hackoregon/linux-laptop-setup/issues/new>. It will only take me a half-day or thereabouts to port them to any recent Fedora, openSUSE or Debian system.
-
 Why Linux Mint 18 / Ubuntu 16.04.1 LTS?
 ---------------------------------------
 
@@ -44,19 +42,19 @@ There are three kinds of Intel / AMD based PCs in use today:
 Getting started
 ---------------
 
-You'll need wall power and a reliable internet connection. Coffee shop WiFi can be problematic. I don't have an accurate RAM requirement defined yet but I know the `r-platform` script crashes if you don't have at least 1536 MiB. See <https://github.com/hackoregon/linux-laptop-setup/issues/11> and <https://github.com/tidyverse/readr/issues/544> for the gory details. My goal is for everything except virtual machine hosting to run in a 1 GiB machine.
+You'll need wall power and a reliable internet connection. Coffee shop WiFi can be problematic. I don't have an accurate RAM requirement defined yet but I know the `r-platform` script crashes if you don't have at least 1536 MiB. See <https://github.com/hackoregon/linux-laptop-setup/issues/11> and <https://github.com/tidyverse/readr/issues/544> for the gory details.
+
+For virtual machine hosting, you need to have twice as much RAM in the host as the total RAM in all the active guests. My goal is for everything except virtual machine hosting to run in a 1 GiB machine.
 
 1.  Download and unpack <https://github.com/hackoregon/linux-laptop-setup/archive/master.zip>. This will create a directory `linux-laptop-setup-master`.
 2.  Open a terminal and `cd` into the directory.
 3.  About `sudo`: `sudo` (super-user do) is a Linux utility that allows you to perform adminstrative tasks like installing software by temporarily operating as the `root` super-user. If you see the prompt `[sudo] password for <your username>:`, enter *your* password.
 
     `sudo` will remember that you have authenticated and not bother you again for a system-dependent time period. If that timeout expires, you will have to authenticate again. For install scripts that run a long time, you'll need to watch for this.
-4.  Type `./1core`. This will
-    -   update all packages to the latest version,
-    -   install a few core command-line utilities, including `lynx`, `git` and `vim`.
-
-5.  Log out and back in again. This sets the environment variables you need.
-6.  The scripts are modular - you only need to install what you're going to use.
+4.  If your machine doesn't have `git` and `vim`, type `./0gitvim`. Most Ubuntu systems I've looked at have them both, but my Linux Mint 18 system did not.
+5.  If you haven't done a software upgrade in a while, do it now with `./0update-upgrade`. You will need to reboot after it completes.
+6.  Type `./1core`. This will install a few core utilities.
+7.  The scripts are modular - you only need to install what you're going to use.
 
 Python data science / machine learning
 --------------------------------------
@@ -104,13 +102,6 @@ QGIS and PgAdmin3 GUI tools
 
 Type `.database-gis-gui` to install the QGIS (Quantum GIS) and PgAdmin3 desktop GUI tools.
 
-VirtualBox and Vagrant hosting (64-bit VA bare metal only)
-----------------------------------------------------------
-
-If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant-hosting`. The script will install VirtualBox automatically. Note that you do *not* need the non-open-source VirtualBox Extension pack.
-
-You will need to install Vagrant manually from the HashiCorp Vagrant download website (<https://www.vagrantup.com/downloads.html>). The script will give you detailed instructions. You will need to log out and back in again after the install to join the `vboxusers` group.
-
 Advanced tools
 --------------
 
@@ -131,13 +122,23 @@ This takes a long time to install. You will probably have to watch it, because i
 
 Type `./rstudio-desktop` to install the RStudio Desktop. You will need to install RStudio Desktop manually from the RStudio download website (<https://www.rstudio.com/products/rstudio/download3/>). The script will give you detailed instructions.
 
-### Docker hosting (64-bit or 64-bit VA, bare metal or inside a 64-bit guest machine)
+### RStudio Server
 
-If you want to run (or build) Docker images, install Docker hosting with `./docker-hosting`. You will need to log out and back in again to join the `docker` group.
+Type `./rstudio-server` to install the RStudio Server. The script will give you detailed instructions. You don't need both the desktop and the server, but it won't hurt anything to have both.
 
 ### Virtual Machine Manager (64-bit VA bare metal only)
 
 The native Linux virtual machine hosting software is called Virtual Machine Manager. To install it, type `./virt-manager-hosting`. You will need to log out and back in again to join the `libvirtd` group. You will have a menu item added to start it.
+
+### VirtualBox and Vagrant hosting (64-bit VA bare metal only)
+
+If you want to host or build VirtualBox guests or Vagrant boxes, type `./vbox-vagrant-hosting`. The script will install VirtualBox automatically. Note that you do *not* need the non-open-source VirtualBox Extension pack.
+
+You will need to install Vagrant manually from the HashiCorp Vagrant download website (<https://www.vagrantup.com/downloads.html>). The script will give you detailed instructions. You will need to log out and back in again after the install to join the `vboxusers` group.
+
+### Docker hosting (64-bit or 64-bit VA, bare metal or inside a 64-bit guest machine)
+
+If you want to run (or build) Docker images, install Docker hosting with `./docker-hosting`. You will need to log out and back in again to join the `docker` group.
 
 ### Git Large File Storage
 
