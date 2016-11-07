@@ -107,7 +107,11 @@
     * On the host, browse to <http://localhost:7777>. You will be connected to the notebook server in the guest.
     * Verify that the notebook server is running.
     * Close the browser window / tab.
-    * In the terminal, type `CONTROL-C` twice to shut down the notebook server. Then type `deactivate-data-science` to deactivate the `data-science` environment.
+    * In the terminal, type `Control-C` twice to shut down the notebook server. Then type `deactivate-data-science` to deactivate the `data-science` environment.
 9. Shut down the virtual machine with `sudo shutdown -h now`. Take another snapshot.
 
 ## Exporting the virtual machine
+The final step is to export the virtual machine as an Open Virtualization Format (OVF) archive so you can share it with other people.
+1. Go into the VirtualBox 'File' menu and select 'Export Appliance'. You will see your Hack Oregon Base virtual machine listed. Select it; if you have any others make sure they are ***not*** selected. Then press 'Next'.
+2. Make sure the format is OVF 1.0 and the file extension is '.ova'. Make a note of where VirtualBox is going to store the file! Then press 'Next'.
+3. Keep the defaults for the 'Appliance settings' screen and press the 'Export' button. The export will start. You'll get a progress window. It can take quite a while to complete the export!
