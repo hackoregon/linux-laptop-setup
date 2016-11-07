@@ -62,6 +62,7 @@ echo "You can ignore the error it throws when it tries."
 
 echo "Adding the data science activate and deactivate aliases to your '.bashrc' file."
 cat data-science-aliases >> $HOME/.bashrc
+echo "Log out and back in again to define the aliases."
 
 echo "To use the data science services, open a terminal and type"
 echo ""
