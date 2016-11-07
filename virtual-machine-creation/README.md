@@ -68,7 +68,7 @@
 
 ## Installing the Hack Oregon services
 1. Start the virtual machine.
-2. Open a terminal and type `ssh hack@localhost -p2222`.
+2. When the virtual machine console shows a login prompt, open a terminal on the host and type `ssh hack@localhost -p2222`.
 
 2. Type `git clone https://github.com/hackoregon/linux-laptop-setup`.
 3. Type `cd linux-laptop-setup`.
