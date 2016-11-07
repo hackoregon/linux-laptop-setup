@@ -1,7 +1,7 @@
 # Making an Ubuntu Server Virtual Machine for Hack Oregon in VirtualBox
 
 ## Creating a virtual machine
-1. You will need to be connected to the internet. Install VirtualBox if you haven't already.
+1. You will need to be connected to the internet. Install VirtualBox 5.0 or later if you haven't already.
 2. Download the Ubuntu 16.04.1 LTS server ISO file from http://releases.ubuntu.com/16.04.1/ubuntu-16.04.1-server-amd64.iso
 3. Open VirtualBox. Create a virtual machine.
     * Call it "Hack Oregon Base".
