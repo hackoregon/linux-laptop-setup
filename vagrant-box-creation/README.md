@@ -20,7 +20,9 @@
     * Create a rule with 'SSH' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 2222 as the host port and 22 as the guest port. Leave the guest IP blank. This enables `ssh` into the guest.
     * Create a rule with 'Jupyter' as the name, 'TCP' as the protocol, 127.0.0.1 as the Host IP, 7777 as the host port and 8888 as the guest port. Leave the guest IP blank. This enables browsing to a Jupyter notebook server in the guest.
 6. Close the Settings wizard.
-7. Start the virtual machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
+
+## Installing Ubuntu Server
+1. Start the virtual machine. When it comes up you'll be in a text-based installer. In most cases, you'll be able to accept the defaults.
 8. Accept all the defaults till you get to the host name screen.
     * Call the machine 'hackoregon-base'.
     * Set the user full name to 'Hack Oregon'.
@@ -52,8 +54,17 @@
     ```
 
     Then you'll get prompted for a password. Enter the 'hack' password and you'll be logged in to the server.
-14. Type `sudo shutdown -h now` to power off the virtual machine. You'll need to enter the password.
-15. Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
+13. Type `sudo apt install -y build-essential dkms` in the secure shell session. You'll be asked for the 'hack' password again.
+13. When the install finishes, type `sudo mkdir -p /mnt/cdrom`. This creates a mount point for the guest additions ISO file.
+13. Go into the 'Devices' menu above the virtual machine console. Select 'Insert Guest Additions CD'. Then type `mount /dev/sr0 /mnt/cdrom` to mount the ISO. You'll see
+
+    ```
+    hack@hackoregon-base:~$ sudo mount /dev/sr0 /mnt/cdrom
+    mount: /dev/sr0 is write-protected, mounting read-only
+    ```
+14. Type `sudo /mnt/cdrom/VBoxLinuxAdditions.run`. The guest additions will be installed.
+14. Type `sudo shutdown -h now` to power off the virtual machine. You'll be logged out of the secure shell session and the virtual machine will shut down.
+15. You now have a Ubuntu 16.04.1 LTS server virtual machine! Go to the VirtualBox "Snapshots" page and take a snapshot, so you can get back to this state.
 
 ## Installing the services
 1. Boot the machine up.
