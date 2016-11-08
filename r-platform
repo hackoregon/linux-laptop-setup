@@ -42,7 +42,4 @@ R -e 'install.packages(c("tidyverse", "XML"), quiet = TRUE)'
 echo "Installing Shiny"
 R -e 'install.packages("shiny", quiet = TRUE)'
 
-echo "Installing authoring tools"
-R -e 'install.packages(c("flexdashboard", "bookdown", "tufte", "rticles"), quiet = TRUE)'
-R -e 'devtools::install_github("rstudio/bookdown", build_vignettes = TRUE)'
 echo "https://cran.rstudio.com/bin/linux/ubuntu repository added"
