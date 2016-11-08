@@ -7,7 +7,6 @@ sudo apt-get update > /dev/null && sudo apt-file update > /dev/null 2>&1
 
 echo "Installing OS packages - this will take some time!"
 sudo apt-get install -y \
-  calibre \
   default-java-plugin \
   default-jdk \
   default-jre \
@@ -15,23 +14,10 @@ sudo apt-get install -y \
   libssh2-1-dev \
   libssl-dev \
   libxml2-dev \
-  lmodern \
   pandoc \
   pandoc-citeproc \
   r-base \
-  r-base-dev \
-  texinfo \
-  texlive-fonts-recommended \
-  texlive-generic-recommended \
-  texlive-latex-base \
-  texlive-latex-extra \
-  texlive-latex-recommended  \
-  texlive-xetex  \
-  xindy
-
-# use US letter paper size
-sudo paperconfig -p letter
-sudo tl-paper set all letter
+  r-base-dev
 
 echo "Creating a TMPDIR on hard drive for R package installs"
 sudo mkdir -p /TMPDIR
