@@ -78,7 +78,7 @@
 5. When the virtual machine is back up, log back in again with `ssh`.
 6. Type `cd linux-laptop-setup`.
 5. Type `./1core`. This will install the core packages for all users.
-6. Type `./database-gis-services-upstream`. This installs PostgreSQL and PostGIS for all users on the virtual machine. It will add 'hack' as a database super-user.
+6. Type `./database-gis-services`. This installs PostgreSQL and PostGIS for all users on the virtual machine. It will add 'hack' as a database super-user.
 7. Type `./data-science-services`. This will install Miniconda and the data science environment for the 'hack' user.
 8. Test the Jupyter notebook server.
     * Type
