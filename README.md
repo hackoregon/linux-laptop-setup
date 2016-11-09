@@ -90,6 +90,10 @@ When you're finished, close the browser. Then type `Control-C` in the terminal w
 
 Enter "y" to shut down Jupyter. Then enter `deactivate-data-science` and close the terminal.
 
+### Optional: Exporting Jupyter notebooks as PDF files
+
+Jupyter notebooks have the ability to export a copy of the notebook as a PDF file. However, this requires addtional packages from the TeXLive LaTeX distribution. These take quite a while to download and install, and will take up about 1.3 gigabytes on your hard drive. If you want this capabilily, type `./data-science-pdf`.
+
 Database / SQL / GIS
 --------------------
 
@@ -113,10 +117,17 @@ Type `./r-platform` to install the R platform. This includes:
 -   Java
 -   The `tidyverse` data wrangling, modeling and visualization packages
 -   The `Shiny` interactive application development package
--   The `flexdashboard`, `bookdown`, `tufte` and `rticles` authoring packages, and
 -   The `devtools` and `roxygen2` package development tools.
 
 This takes a long time to install. You will probably have to watch it, because if the Linux package install takes long enough, it will pause wanting a `sudo` password entry.
+
+#### Optional: R / RStudio authoring tools
+
+The most recent release of RStudio includes tools for authoring websites and eBooks. Like the PDF export of Jupyter notebooks, these tools require a collection of packages from the TeXLive LaTeX distribution.
+
+The R packages in this collection are `flexdashboard`, `bookdown`, `tufte` and `rticles`. They can be used from the command line, but they're much better with RStudio.
+
+If you want the R authoring packages, type `./r-authoring`.
 
 ### RStudio Desktop
 

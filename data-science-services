@@ -47,30 +47,8 @@ echo "existing 'data-science'. You can ignore the error it throws when it tries.
 ~/miniconda3/bin/conda create --yes --name data-science jupyter seaborn statsmodels scikit-learn
 
 echo ""
-echo ""
-echo "If you want to be able to do PDF downloads of your notebooks, you will"
-echo "need to install some LaTeX packages from Linux. The install will take"
-echo "some time, especially on slow networks, and will take up quite a bit of"
-echo "space on your disk."
-echo ""
-echo "If you want these packages, say 'Y' below. Note that 'Y' is the default!"
-echo "If you do *not* want these packages, say 'n'!"
-echo ""
-echo ""
-
-# LaTeX packages for PDF notebook downloads
-# File an issue at https://github.com/hackoregon/linux-laptop-setup/issues/new if you need others
-sudo apt-get install \
-  pandoc \
-  pandoc-citeproc \
-  texlive-latex-base \
-  texlive-fonts-recommended \
-  texlive-latex-recommended \
-  texlive-latex-extra \
-  texlive-generic-recommended
-echo ""
-echo ""
-echo "Adding the data science activate and deactivate aliases to your '.bashrc' file."
+echo "Adding the 'conda', data science activate and deactivate aliases to your"
+echo "'.bashrc' file."
 cat data-science-aliases >> $HOME/.bashrc
 echo "Log out and back in again to define the aliases."
 echo ""
