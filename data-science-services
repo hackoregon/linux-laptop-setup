@@ -41,11 +41,17 @@ echo "Updating the Miniconda distribution."
 
 echo ""
 echo ""
-echo "Creating a Conda environment named 'data-science' with 'jupyter',"
+echo "Creating a Conda environment named 'data-science' with 'django', 'jupyter',"
 echo "'seaborn', 'statsmodels' and 'scikit-learn'. This will not overwrite an"
 echo "existing 'data-science'. You can ignore the error it throws when it tries."
-~/miniconda3/bin/conda create --yes --name data-science jupyter seaborn statsmodels scikit-learn
+~/miniconda3/bin/conda create --yes --name data-science \
+  django jupyter seaborn statsmodels scikit-learn
 
+echo ""
+echo "Installing 'djangorestframework' in 'data-science' with pip."
+source $HOME/miniconda3/bin/activate data-science
+pip install djangorestframework
+source $HOME/miniconda3/bin/deactivate data-science
 echo ""
 echo "Adding the 'conda', data science activate and deactivate aliases to your"
 echo "'.bashrc' file."
